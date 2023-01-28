@@ -1,5 +1,8 @@
 # Flutter-Playground
 This is a repository that keeps track of all my learnings of flutter from resources to my demo projects.
+<p align="center">
+  <img width="600" height="200" src="https://user-images.githubusercontent.com/108233235/215276175-314260cd-c3e8-44cf-9538-d56781ca7a9e.png">
+</p>
 
 # Tools and Environment
 Personally, I use MacoS. Git, Xcode, Android Studio are essentials in order to install flutter on your system and prepare the environment. 
