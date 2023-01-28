@@ -1,0 +1,31 @@
+What is Flutter?
+FLutter is a essentially a tool/framework that allows you to build cross-platform Native applications(IOS, Android, web, desktop etc) all from a single codebase and programming language instead of multiple. 
+This is developed by Google.
+
+You can work with flutter with your existing codebase of an application too. 
+
+Flutter refers to two major things: 
+1. Flutter SDK(Software Development Kit) - Collection of tools that allwos you to write your app in single codebase and then compile it to native machine code and make development easy. Basically it compiles and allows you to run the code natively on platforms such as IOS and android.
+2. Dart - A framework/widget library that allows you to make the app beautiful that is building the frontend or UI/UX. 
+
+So, flutter uses a programming language called Dart which is used to design the frontend(UI) of a cross-platform applications.
+Dart is independent and can be used to build UI for any native application like web too. but flutter uses it mainly for mobile. Even Dart is developed by Google.
+
+Dart is a Object-oriented and strongly typed language. Syntax is similar to Java, Javascript.
+
+Flutter works hand in hand with Dart. They are not alternatives to each other. Flutter builts up on dart(Framework). 
+
+Flutter Architecture:
+1. UI as a code:
+Flutter has the idea of building interfaces as a code. you build a widget tree. Meaning no visual drag and drop but you work with code wrt positioning etc. It can be intimidating but very easy and useful.
+2. Embrace platform differences: 
+As you develop for different platforms using a single codebase, you can choose to have a different UI for one platform. Platforms are different so you have tools to execute accordingly. 
+3. Everything in flutter is a widget. Your app itself is a widget tree. 
+4. No visual code editor at all. Only code
+
+How does flutter even convert your dart/flutter code to native apps?
+This happens with the help of an SDK(Flutter SDK)
+Flutter SDK compiles your code and produces a highly optimised and efficient version of native apps as per the requirement. It keeps performance as it's priority.
+Flutter does not support platform primitives? What does that even mean? Flutter does not compile your code to some native equivalent code. It produces a cods that ships with its own engine which controls the entire screen, literally everything. So it gives you more control, flexible and less limitations.
+
+Setting up flutter and the required environment is very simple, you can either refer to the Readme file in my repository or just google it. 
