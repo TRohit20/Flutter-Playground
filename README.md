@@ -40,3 +40,11 @@ flutter run. // Running the application for the first time, it needs to compile 
 
 # Resources
 [Flutter Documentation](https://docs.flutter.dev/get-started/install)
+[Flutter full course by FreeCodeCamp](https://youtu.be/VPvVD8t02U8)
+[Flutter for beginners playlist](https://www.youtube.com/playlist?list=PL4cUxeGkcC9jLYyp2Aoh6hcWuxFDX6PBJ)
+[Official Flutter Youtube Channel](https://www.youtube.com/@flutterdev) -  You can subscribe to their channel for updates, new learnings etc
+
+
+# Alternatives to Flutter to better assess your fit
+It is important to understand that flutter is not the only solution for cross-platform development. There are other tools too, so I look at the alternatives too and decide which is better for you. 
+You can read this article here for a better understanding: ["React Native vs Flutter vs Ionic vs NativeScript vs PWA"](https://academind.com/tutorials/react-native-vs-flutter-vs-ionic-vs-nativescript-vs-pwa)
