@@ -29,3 +29,6 @@ Flutter SDK compiles your code and produces a highly optimised and efficient ver
 Flutter does not support platform primitives? What does that even mean? Flutter does not compile your code to some native equivalent code. It produces a cods that ships with its own engine which controls the entire screen, literally everything. So it gives you more control, flexible and less limitations.
 
 Setting up flutter and the required environment is very simple, you can either refer to the Readme file in my repository or just google it. 
+
+To create your flutter project use the command "Flutter create project_name", You can store the project locally anywhere as per your wish.
+"Lib" folder holds the main dart program of the project and "pubspec.yaml" file holds the configurations
