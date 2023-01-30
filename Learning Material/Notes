@@ -110,4 +110,6 @@ Different types of widgets in flutter:
 Visible(Input and Output): These are widgets like text, buttons etc that the user can see. 
 invisible(Layout and Model): Layout of the widget and controlling how our widget tree looks like row, column, views etc. 
                              These give you the app structure and control how the visible widgets are drawn onto the user.
-Container widget: This is a widget that is kinda of both the categories. It is by default invisible but you can customise to make it visible. 
+Container widget: This is a widget that is kinda of both the categories. It is by default invisible but you can customise to make it visible.
+
+We use lists, a data type in order to store multiple values, widgets.
