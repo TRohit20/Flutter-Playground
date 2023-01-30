@@ -113,3 +113,4 @@ invisible(Layout and Model): Layout of the widget and controlling how our widget
 Container widget: This is a widget that is kinda of both the categories. It is by default invisible but you can customise to make it visible.
 
 We use lists, a data type in order to store multiple values, widgets.
+Widgets need to be functioning standalone. So, it is best practise and relevant to store all data or nested widgets required inside a single class. 

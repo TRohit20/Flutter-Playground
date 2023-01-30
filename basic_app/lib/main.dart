@@ -9,6 +9,10 @@ void main() {
 
 // Create the main App widget
 class MyApp extends StatelessWidget {
+  void optionChosen() {
+    print("You chose a option.");
+  }
+
   @override
   Widget build(BuildContext ctx) {
     var questions = ['What\'s your name?', 'What\'s your age?'];
@@ -25,14 +29,14 @@ class MyApp extends StatelessWidget {
             Text('What type of Programming language is Dart?'),
             ElevatedButton(
               child: Text('It is a Object-Oriented Programming Language!'),
-              onPressed: null,
+              onPressed: optionChosen,
             ),
             ElevatedButton(
-              onPressed: null,
+              onPressed: optionChosen,
               child: Text('It is loosely typed Programming Language.'),
             ),
             ElevatedButton(
-              onPressed: null,
+              onPressed: optionChosen,
               child: Text('It is a dynamic programming language.'),
             ),
           ],
