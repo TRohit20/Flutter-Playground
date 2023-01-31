@@ -8,44 +8,48 @@ void main() {
 // void main() => runApp(MyApp());
 
 // Create the main App widget
-class MyApp extends StatelessWidget {
-  void optionChosen() {
-    print("You chose a option.");
+class MyApp extends StatefulWidget {
+  @override
+  State<StatefulWidget> createState() {
+    return MyAppState();
+  }
+}
+
+class MyAppState extends State {
+  var questionNumber = 0;
+  var questions = [
+    'Which is your Favourite?',
+    'Which do you think is easier?',
+  ];
+
+  void count() {
+    // setState method takes a anonymous function as the parameter
+    setState(() {
+      questionNumber += 1;
+    });
+    // questionNumber += 1;
+    print(questionNumber);
   }
 
   @override
-  Widget build(BuildContext ctx) {
-    var questions = ['What\'s your name?', 'What\'s your age?'];
-
+  Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        appBar: AppBar(
-          title: Text('First App'),
-          backgroundColor: Colors.red,
-        ),
-        body: Column(
-          children: [
-            Text('Here are a Quick Question:'),
-            Text('What type of Programming language is Dart?'),
-            ElevatedButton(
-              child: Text('It is a Object-Oriented Programming Language!'),
-              onPressed: optionChosen,
-            ),
-            ElevatedButton(
-              // Anonymous function Syntax: (arguments) => ... or (args) {body}
-              onPressed: () => print('Option 2 choosen'),
-              child: Text('It is loosely typed Programming Language.'),
-            ),
-            ElevatedButton(
-              onPressed: () {
-                // You can have a body here to do something
-                print('option 3 choosen');
-              },
-              child: Text('It is a dynamic programming language.'),
-            ),
-          ],
-        ),
-      ),
+          appBar: AppBar(
+            title: Text('My First App'),
+            backgroundColor: Colors.red,
+          ),
+          body: Column(
+            children: [
+              Text(questions[questionNumber]),
+              ElevatedButton(onPressed: count, child: Text('Java')),
+              // Text(questions[questionNumber]),
+              ElevatedButton(onPressed: count, child: Text('Python')),
+              // Text(questions[questionNumber]),
+              ElevatedButton(
+                  onPressed: () => print('Answer Chosen'), child: Text('C++')),
+            ],
+          )),
     );
   }
 }

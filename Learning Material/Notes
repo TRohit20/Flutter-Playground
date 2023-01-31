@@ -120,4 +120,18 @@ While using constructors and named arguments, remember that you can use '@requir
 Make yourself familiar with name arguments and using them as they are used widely in flutter and it's packages.
 
 Instead of using a named function to connect the button with a functionality, you can also use a anonymous function but that is when theres only one button.
-If you add () at the end of the anonymous function, then it will be executed immediately
+If you add () at the end of the anonymous function, then it will be executed immediately.
+
+Understanding state:
+Data/infromation used by the app is called state. 
+Lets say, we are building a Ecommerce app, for that:
+App state will be user login, products list and cart etc etc
+widget state will be the are we loading data, should we show that? etc.
+The role of a stateless widget is to simply output the data, while stateful is used for interactive apps etc.
+You can convert your stateless widgets to a stateful widget.
+
+Stateless VS Stateful widget:
+A stateless widget renders UI using the Build method. It can take external data using constructors and rebuild the UI. 
+It cannot consist of any internal data or changes in it. 
+While on the other hand, A stateful widget is the same but it has the ability to have a internal state, so the flutter will build or rerender
+when there is change of external data or change in internal state. 
