@@ -114,3 +114,10 @@ Container widget: This is a widget that is kinda of both the categories. It is b
 
 We use lists, a data type in order to store multiple values, widgets.
 Widgets need to be functioning standalone. So, it is best practise and relevant to store all data or nested widgets required inside a single class. 
+
+While using constructors and named arguments, remember that you can use '@required' to assert that that argument is required while the others are optional.
+
+Make yourself familiar with name arguments and using them as they are used widely in flutter and it's packages.
+
+Instead of using a named function to connect the button with a functionality, you can also use a anonymous function but that is when theres only one button.
+If you add () at the end of the anonymous function, then it will be executed immediately

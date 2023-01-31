@@ -32,11 +32,15 @@ class MyApp extends StatelessWidget {
               onPressed: optionChosen,
             ),
             ElevatedButton(
-              onPressed: optionChosen,
+              // Anonymous function Syntax: (arguments) => ... or (args) {body}
+              onPressed: () => print('Option 2 choosen'),
               child: Text('It is loosely typed Programming Language.'),
             ),
             ElevatedButton(
-              onPressed: optionChosen,
+              onPressed: () {
+                // You can have a body here to do something
+                print('option 3 choosen');
+              },
               child: Text('It is a dynamic programming language.'),
             ),
           ],
