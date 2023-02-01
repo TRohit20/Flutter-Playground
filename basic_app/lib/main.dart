@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import './question.dart';
 
 void main() {
   runApp(MyApp());
@@ -41,7 +42,7 @@ class _MyAppState extends State {
           ),
           body: Column(
             children: [
-              Text(questions[_questionNumber]),
+              Question(questions[_questionNumber]),
               ElevatedButton(onPressed: _count, child: Text('Java')),
               // Text(questions[questionNumber]),
               ElevatedButton(onPressed: _count, child: Text('Python')),

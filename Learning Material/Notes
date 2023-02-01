@@ -142,3 +142,6 @@ It is  function that forces flutter to re-render UI but not entirely. It will re
 Every file inside the lib folder is a mini-library of itself. So, when working with teams or multiple files, it is important to use private properties and what you want to share and what not to in order to ensure that you app doesnt go out of sync or introduce bugs.
 
 We do that by using a underscroll before the class/widget name. It turns a public class into a private one. Same goes for a property. So a private property cannot be accessed by a different class or so.
+
+It is recommended or best-practise to have only one widget present in a file. Rare exceptions can be given like when there are two widgets that will only work together and you dont reuse it elsewhere.
+We can use stateless widget for custom or new ones cz they can take data externally through constructors. You will get familiar with this as you implement it and understand the internal working.
