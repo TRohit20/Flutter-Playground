@@ -145,3 +145,6 @@ We do that by using a underscroll before the class/widget name. It turns a publi
 
 It is recommended or best-practise to have only one widget present in a file. Rare exceptions can be given like when there are two widgets that will only work together and you dont reuse it elsewhere.
 We can use stateless widget for custom or new ones cz they can take data externally through constructors. You will get familiar with this as you implement it and understand the internal working.
+
+Core of the container is always the child/content. You can upset padding and margin for it.
+Padding is internal, margin is around the container.
