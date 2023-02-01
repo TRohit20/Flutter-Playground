@@ -135,3 +135,10 @@ A stateless widget renders UI using the Build method. It can take external data 
 It cannot consist of any internal data or changes in it. 
 While on the other hand, A stateful widget is the same but it has the ability to have a internal state, so the flutter will build or rerender
 when there is change of external data or change in internal state. 
+
+A brief look at what flutter does when setState() is called or used in a stateful widget:
+It is  function that forces flutter to re-render UI but not entirely. It will re-run the build of the widget class where the setState is present.
+
+Every file inside the lib folder is a mini-library of itself. So, when working with teams or multiple files, it is important to use private properties and what you want to share and what not to in order to ensure that you app doesnt go out of sync or introduce bugs.
+
+We do that by using a underscroll before the class/widget name. It turns a public class into a private one. Same goes for a property. So a private property cannot be accessed by a different class or so.

@@ -11,24 +11,24 @@ void main() {
 class MyApp extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
-    return MyAppState();
+    return _MyAppState();
   }
 }
 
-class MyAppState extends State {
-  var questionNumber = 0;
+class _MyAppState extends State {
+  var _questionNumber = 0;
   var questions = [
     'Which is your Favourite?',
     'Which do you think is easier?',
   ];
 
-  void count() {
+  void _count() {
     // setState method takes a anonymous function as the parameter
     setState(() {
-      questionNumber += 1;
+      _questionNumber += 1;
     });
     // questionNumber += 1;
-    print(questionNumber);
+    print(_questionNumber);
   }
 
   @override
@@ -41,10 +41,10 @@ class MyAppState extends State {
           ),
           body: Column(
             children: [
-              Text(questions[questionNumber]),
-              ElevatedButton(onPressed: count, child: Text('Java')),
+              Text(questions[_questionNumber]),
+              ElevatedButton(onPressed: _count, child: Text('Java')),
               // Text(questions[questionNumber]),
-              ElevatedButton(onPressed: count, child: Text('Python')),
+              ElevatedButton(onPressed: _count, child: Text('Python')),
               // Text(questions[questionNumber]),
               ElevatedButton(
                   onPressed: () => print('Answer Chosen'), child: Text('C++')),
