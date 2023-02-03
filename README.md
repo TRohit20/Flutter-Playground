@@ -40,8 +40,11 @@ flutter run. // Running the application for the first time, it needs to compile 
 
 # Resources
 [Flutter Documentation](https://docs.flutter.dev/get-started/install)
+
 [Flutter full course by FreeCodeCamp](https://youtu.be/VPvVD8t02U8)
+
 [Flutter for beginners playlist](https://www.youtube.com/playlist?list=PL4cUxeGkcC9jLYyp2Aoh6hcWuxFDX6PBJ)
+
 [Official Flutter Youtube Channel](https://www.youtube.com/@flutterdev) -  You can subscribe to their channel for updates, new learnings etc
 
 
