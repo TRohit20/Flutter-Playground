@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import './question.dart';
+import './test.dart';
 
 void main() {
   runApp(MyApp());
@@ -34,6 +35,7 @@ class _MyAppState extends State {
 
   @override
   Widget build(BuildContext context) {
+    test2();
     return MaterialApp(
       home: Scaffold(
           appBar: AppBar(
