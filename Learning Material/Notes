@@ -16,6 +16,8 @@ Dart is a Object-oriented and strongly typed language. Syntax is similar to Java
 
 Flutter works hand in hand with Dart. They are not alternatives to each other. Flutter builts up on dart(Framework). 
 
+Saving of code in flutter automatically triggers hot reload meaning it looks for changes in the code hierachy and executes only those changes. 
+
 Flutter Architecture:
 1. UI as a code:
 Flutter has the idea of building interfaces as a code. you build a widget tree. Meaning no visual drag and drop but you work with code wrt positioning etc. It can be intimidating but very easy and useful.

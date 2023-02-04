@@ -1,0 +1,20 @@
+Dart is a Object oriented programming language. 
+It is the base programming language used to build in flutter.
+
+Each language has their own set of keywords. These are speacial words reserved by the language which are used to do certain function. You can make it understand what you wanna do using them.
+
+Data types are the types of data that are to be stored such as integers, characters etc. 
+
+Constants are usually values which cannot be changed or vary. Compile time or run-time, constants value doesnt change. 
+
+Functions are piece of code that hold your logic so you dont have to write it again and again.
+
+Dart is a lot similar to Java and javascript. If you have experience with them like I do, it just gets easier to learn. BUT IT IS NOT MANDATORY!
+
+Dart Control Statements and Collections:
+If and else are conditional statements used in Dart. Meaning these are keywords used to assert a condition like if the condition is true, it'll execute the body. They are a control statement.
+You can have multiple if statements or else if statements too. 
+
+Dart executes line by line. Please keep it in mind as you decide your layout and code hierachy.
+
+Operators are usually of three types: Prefix, postfix and suffix
