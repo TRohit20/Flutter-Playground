@@ -11,8 +11,42 @@ void test1() {
 }
 
 // To demonstrate operators use
-void test2() {
+void operatorsTest() {
   final age = 21;
   final twiceOfAge = age * 2;
+  final halfOfAge = age / 2;
+  final remainder = age % 2;
+  final ageIncrement = age + 1;
+  final name = 'Rohit';
   print(twiceOfAge);
+  print(halfOfAge);
+  print(ageIncrement);
+  print(remainder);
+  print("Hi, this is " + name);
+}
+
+// Lists exmaples
+void listTest() {
+  final food = ['shawarma', 'roti', 'chicken'];
+  final fullNames = [
+    ['Rohit', 'T'],
+    ['Sravani', 'Vadlamudi']
+  ];
+  print(food[1]);
+  print(food.length);
+  print(fullNames.length);
+}
+
+// Sets example in Dart
+void setTest() {
+  final multipleData = {'Rohit', 'is', 21, 'years old'};
+  multipleData.add('He is a Genius');
+  multipleData.add(100);
+  print(multipleData);
+}
+
+// Maps example code
+void mapsTest() {
+  final humanData = {'Name': 'Rohit', 'Age': 21};
+  print(humanData.isEmpty);
 }

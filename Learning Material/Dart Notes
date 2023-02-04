@@ -17,4 +17,30 @@ You can have multiple if statements or else if statements too.
 
 Dart executes line by line. Please keep it in mind as you decide your layout and code hierachy.
 
-Operators are usually of three types: Prefix, postfix and suffix
+Operators are usually of three types: Prefix, postfix and suffix. (refer to code examples).
+You can also create your own operators or overide operators using classes and objects. We will dive into it in some while.
+
+It is useful to know that dart is a language that has certain exceptions written.
+
+Lists in dart:
+A data structure that stores similar data i.e homogenous data. Data of the same type. 
+You can initalise them using the square brackets.
+It is also very important to know that the indexes of lists in dart or pretty much all programming languages start with 0 and not 1!
+Lists also have a range of methods or functions available such as length of list etc
+*** 
+But how do you extract those methods? You use '.'
+'.' is used to draw the methods or functions available, to access a object or property etc.
+
+Sets in Dart:
+it is a list of unique things meaning a data structure that can store and hold data of different types such as strings, integer etc.
+It is initialised using flower brackets '{}'
+Set allows you to create a unique set of list.
+
+Maps in Dart:
+Maps are data structures that are used to hold key-value pairs of information similar to dictionaries in python(Pretty much same).
+Let us say you are storing a human's data such as age, name, gender, height etc
+The above are keys(properties of a human). Now, they have values right? Hence the key-value pair.
+key inside a map need to be unique.
+You initialise a map using flower brackets but in this way: 
+** ref_var = {'property_name':'value','property_name':'value'};
+

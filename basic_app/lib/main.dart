@@ -35,7 +35,8 @@ class _MyAppState extends State {
 
   @override
   Widget build(BuildContext context) {
-    test2();
+    setTest();
+    mapsTest();
     return MaterialApp(
       home: Scaffold(
           appBar: AppBar(
