@@ -52,4 +52,22 @@ It is a keyword used to indicate the absence of a value.
 In Dart, this is called Sound Null safety.
 You can make any type nullable by using a questionmark after the datatype like this:
 EG: String? ref_var = null;
-A good example with explanation in code in test.dart file
+A good example with explanation in code in test.dart file under the nullSafetyCheck() function.
+You can also call them optional 
+In case, you wanna migrate your code or package to new code that supports null safety. You can check out how that's done using the official dart documentation.
+
+Cherry picking non null values: We use the '??' operator for this.
+You can ask the language to give you the values that are not null or not absent
+?? is  infix operator. It picks either the left or right side which is not null. 
+It's the same implementation in Swift
+
+Null-aware assignment operator: ??=
+It is very similar to ?? and tries to resolve a variable is not null. Tries its best.
+We dont use this often. But basically what it does is it checks if the variable is null or not. You can learn more about it and in a better way by using google or YT. It can get little confusing.
+
+Conditional invocation: ?.
+WE use this operator to conditionally invoke a method or property. 
+We saw this earlier that we can draw methods or properties from a class using '.'
+So, how do you draw properties from a nullable object?
+
+There are many cases where you have to work with null or null safety.

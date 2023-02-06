@@ -52,9 +52,33 @@ void mapsTest() {
 }
 
 void nullSafetyCheck() {
+  // Basically you use a '?' to make a type nullable
   String? name = 'Rohit';
+  print(name);
   name = null;
+  print(name);
 
-// You can make elements in list also nullable by using question mark postfix the datatype.
+  // You can make elements in list also nullable by using question mark postfix the datatype.
+  // The below indicates that I have a list of integers that can be absent sometimes. And the list contains elements of integer which can be absent sometimes.
   List<int?>? randomNumbers = [1, 2, 3, null];
+
+// On the other hand, The below indicates that I have a list of strings can be absent sometimes. But the list elements cannot be absent.
+  List<String>? randomNames = [];
+}
+
+// Cherry picking non-null values
+void cherryPickNonNull(
+    String? firstName, String? lastName, String? middleName) {
+  final nonNullValue = firstName ?? lastName ?? middleName;
+  print(nonNullValue);
+}
+
+// Conditional Invocation
+void cInvoke(List<String>? names) {
+  // YOu cannot invoke the add method cz the list is optional and can be null
+  // So, this operator check if it is null and invokes the method if its not null
+  names?.add('value');
+  names?.add('Rohit');
+  names?.remove(names[2]);
+  print(names);
 }

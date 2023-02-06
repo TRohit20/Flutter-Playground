@@ -33,10 +33,11 @@ class _MyAppState extends State {
     print(_questionNumber);
   }
 
+  List<String>? naam = ['Karthik'];
+
   @override
   Widget build(BuildContext context) {
-    setTest();
-    mapsTest();
+    cInvoke(naam);
     return MaterialApp(
       home: Scaffold(
           appBar: AppBar(
