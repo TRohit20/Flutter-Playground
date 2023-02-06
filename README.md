@@ -39,6 +39,8 @@ flutter run. // Running the application for the first time, it needs to compile 
 
 
 # Resources
+[Dart Documentation](https://dart.dev/guides)
+
 [Flutter Documentation](https://docs.flutter.dev/get-started/install)
 
 [Flutter full course by FreeCodeCamp](https://youtu.be/VPvVD8t02U8)
