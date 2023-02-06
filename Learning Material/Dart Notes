@@ -44,3 +44,12 @@ key inside a map need to be unique.
 You initialise a map using flower brackets but in this way: 
 ** ref_var = {'property_name':'value','property_name':'value'};
 
+***** NULL SAFETY: Very important topic in Dart, Swift and Rust and other languages!
+In programming language we are allowed to have the absence of a value. For example you have a variable, you can tell that this variable can either store a certain data or for its lifetime be nothing(No value).
+That right there, having no value or nothing is called Null.
+It is a keyword used to indicate the absence of a value.
+
+In Dart, this is called Sound Null safety.
+You can make any type nullable by using a questionmark after the datatype like this:
+EG: String? ref_var = null;
+A good example with explanation in code in test.dart file

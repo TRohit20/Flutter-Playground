@@ -50,3 +50,11 @@ void mapsTest() {
   final humanData = {'Name': 'Rohit', 'Age': 21};
   print(humanData.isEmpty);
 }
+
+void nullSafetyCheck() {
+  String? name = 'Rohit';
+  name = null;
+
+// You can make elements in list also nullable by using question mark postfix the datatype.
+  List<int?>? randomNumbers = [1, 2, 3, null];
+}
