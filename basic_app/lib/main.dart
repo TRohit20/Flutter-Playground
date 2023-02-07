@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import './question.dart';
 import './test.dart';
+import 'object_oriented.dart';
 
 void main() {
   runApp(MyApp());
@@ -34,10 +35,11 @@ class _MyAppState extends State {
   }
 
   List<String>? naam = ['Karthik'];
+  Student karthik = new Student();
 
   @override
   Widget build(BuildContext context) {
-    cInvoke(naam);
+    karthik.greeting();
     return MaterialApp(
       home: Scaffold(
           appBar: AppBar(
