@@ -35,11 +35,17 @@ class _MyAppState extends State {
   }
 
   List<String>? naam = ['Karthik'];
-  Student karthik = new Student();
+  Employee rohit = Employee(
+    'Rohit',
+    1957,
+    100,
+    phoneNumber: 999,
+    address: 'Hey this is the X employee\'s address ',
+  );
 
   @override
   Widget build(BuildContext context) {
-    karthik.greeting();
+    print(rohit.address);
     return MaterialApp(
       home: Scaffold(
           appBar: AppBar(

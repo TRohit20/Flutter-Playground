@@ -71,3 +71,13 @@ We saw this earlier that we can draw methods or properties from a class using '.
 So, how do you draw properties from a nullable object?
 
 There are many cases where you have to work with null or null safety.
+
+It is good convention to use 'this' keyword.
+
+From the specific notes I have already provided you are now familiar with constructors.
+They allow us to create different instances of our classes. We can specify which parameters the class should depend on when it is being instantiated and hide inner initialization logic.
+We can have many constructors for different use cases or we can rely on the default one.
+In Dart, constructors play a similar role but have several variations that do not exist in most programming languages. We will go over the different use cases and examples of constructors in Dart. 
+
+In other languages, it is possible to overload your constructor. This means that you can have different constructors with the same name but with a varying signature (or a different set of arguments).
+In Dart, this is not possible, but there is a way around it. It is called named constructors. Giving your constructors different names allows your class to have many constructors and also to better represent their use cases outside of the class.
