@@ -1,4 +1,5 @@
 import 'dart:ffi';
+import 'dart:math';
 
 // Creating a class(Can be a custom data-type)
 class Employee {
@@ -10,8 +11,16 @@ class Employee {
 
   // Creating a constructor(Special function)
   Employee(this.employeeName, this.employeeRollNumber, this.employeeperformance,
-      {this.phoneNumber, this.address});
+      {this.phoneNumber, this.address}); //Named arguments or constructors
 
+  // Named Constructor
+  Employee.random(this.employeeName) : employeeRollNumber = 1999;
+
+  // Redirecting constructor
+  Employee.withoutPerformance(employeeName, employeeRollNumber)
+      : this("Rohit", 1957, 0);
+
+  // Funcs inside class are called methods
   void greeting() {
     print("Hello there, my name is $this.employeeName");
   }
@@ -20,6 +29,18 @@ class Employee {
     employeeName = newName;
     print("Hello there! My name is $employeeName");
   }
+}
+
+// Advanced Constructor
+class Employer {
+  static const Employer fordFocus = Employer("Ford", "Focus", "2013", true);
+
+  final String make;
+  final String company;
+  final String yearOfEmployment;
+  final bool expert;
+
+  const Employer(this.make, this.company, this.yearOfEmployment, this.expert);
 }
 
 void main() {

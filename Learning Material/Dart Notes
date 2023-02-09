@@ -50,11 +50,21 @@ That right there, having no value or nothing is called Null.
 It is a keyword used to indicate the absence of a value.
 
 In Dart, this is called Sound Null safety.
+Null safety prevents errors that result from unintentional access of variables set to null. For example, if a method expects an integer but receives null, your app causes a runtime error. This type of error, a null dereference error, can be difficult to debug.
 You can make any type nullable by using a questionmark after the datatype like this:
 EG: String? ref_var = null;
 A good example with explanation in code in test.dart file under the nullSafetyCheck() function.
 You can also call them optional 
 In case, you wanna migrate your code or package to new code that supports null safety. You can check out how that's done using the official dart documentation.
+
+Null safety principles
+Dart null safety support is based on the following three core design principles:
+
+Non-nullable by default. Unless you explicitly tell Dart that a variable can be null, it’s considered non-nullable. This default was chosen after research found that non-null was by far the most common choice in APIs.
+
+Incrementally adoptable. You choose what to migrate to null safety, and when. You can migrate incrementally, mixing null-safe and non-null-safe code in the same project. We provide tools to help you with the migration.
+
+Fully sound. Dart’s null safety is sound, which enables compiler optimizations. If the type system determines that something isn’t null, then that thing can never be null. Once you migrate your whole project and its dependencies to null safety, you reap the full benefits of soundness—not only fewer bugs, but smaller binaries and faster execution.
 
 Cherry picking non null values: We use the '??' operator for this.
 You can ask the language to give you the values that are not null or not absent
@@ -81,3 +91,14 @@ In Dart, constructors play a similar role but have several variations that do no
 
 In other languages, it is possible to overload your constructor. This means that you can have different constructors with the same name but with a varying signature (or a different set of arguments).
 In Dart, this is not possible, but there is a way around it. It is called named constructors. Giving your constructors different names allows your class to have many constructors and also to better represent their use cases outside of the class.
+
+A factory constructor is a constructor that can be used when you don’t necessarily want a constructor to create a new instance of your class.
+This might be useful if you hold instances of your class in memory and don’t want to create a new one each time (or if the operation of creating an instance is costly).
+Another use case is if you have certain logic in your constructor to initialize a final field that cannot be done in the initializer list.
+
+Advanced Constructors
+Dart also allows you to create constant constructors. What does this mean exactly? If your class represents an object that will never change after its creation, you can benefit from the use of a constant constructor. You have to make sure that all your class fields are final.
+
+When you want one constructor to call another constructor under the hood, it’s referred to as redirecting constructors.
+
+When you want one constructor to call another constructor under the hood, it’s referred to as redirecting constructors.
