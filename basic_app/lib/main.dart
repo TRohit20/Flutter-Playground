@@ -46,7 +46,8 @@ class _MyAppState extends State {
 
   @override
   Widget build(BuildContext context) {
-    print(rohit.address);
+    // print(rohit.address);
+    print(Employee.workingHours);
     return MaterialApp(
       home: Scaffold(
           appBar: AppBar(

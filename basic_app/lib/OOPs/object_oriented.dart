@@ -8,6 +8,7 @@ class Employee {
   int? employeeperformance;
   int? phoneNumber;
   String? address;
+  static int? workingHours = 8;
 
   // Creating a constructor(Special function)
   Employee(this.employeeName, this.employeeRollNumber, this.employeeperformance,
