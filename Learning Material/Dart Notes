@@ -30,6 +30,7 @@ Lists also have a range of methods or functions available such as length of list
 *** 
 But how do you extract those methods? You use '.'
 '.' is used to draw the methods or functions available, to access a object or property etc.
+It is basically used to bind instance methods with ref variables or so.
 
 Sets in Dart:
 it is a list of unique things meaning a data structure that can store and hold data of different types such as strings, integer etc.

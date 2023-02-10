@@ -1,8 +1,10 @@
+import 'package:basic_app/OOPs/inheritance/customHouse.dart';
 import 'package:flutter/material.dart';
 import './question.dart';
 import './test.dart';
 import 'OOPs/object_oriented.dart';
 // import 'package:basic_app/OOPs/object_oriented.dart';
+import 'OOPs/inheritance/house.dart';
 
 void main() {
   runApp(MyApp());
@@ -44,10 +46,11 @@ class _MyAppState extends State {
     address: 'Hey this is the X employee\'s address ',
   );
 
+  CustomHouse h2 = CustomHouse(10, 12, 14, 4);
+
   @override
   Widget build(BuildContext context) {
-    // print(rohit.address);
-    print(Employee.workingHours);
+    print(h2.length);
     return MaterialApp(
       home: Scaffold(
           appBar: AppBar(

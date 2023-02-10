@@ -23,8 +23,8 @@ class Employee {
 
   // Funcs inside class are called methods
   static void greeting() {
-    print(
-        "Hello there, my name is $this.employeeName"); //Cannot use 'this' keyword in static methods
+    // print(
+    //     "Hello there, my name is $this.employeeName"); //Cannot use 'this' keyword in static methods
   }
 
   void changeName(String newName) {
