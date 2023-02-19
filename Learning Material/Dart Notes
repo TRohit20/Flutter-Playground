@@ -103,3 +103,7 @@ Dart also allows you to create constant constructors. What does this mean exactl
 When you want one constructor to call another constructor under the hood, it’s referred to as redirecting constructors.
 
 When you want one constructor to call another constructor under the hood, it’s referred to as redirecting constructors.
+
+Enums: 
+Group of variables that you cannot change(Like a constant)
+For a particular class, you will need only particular no. of objects only

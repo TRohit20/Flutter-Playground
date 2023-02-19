@@ -1,10 +1,11 @@
 import 'package:basic_app/OOPs/inheritance/customHouse.dart';
 import 'package:flutter/material.dart';
 import './question.dart';
-import './test.dart';
+// import './test.dart';
 import 'OOPs/object_oriented.dart';
+import 'enums_example.dart';
 // import 'package:basic_app/OOPs/object_oriented.dart';
-import 'OOPs/inheritance/house.dart';
+// import 'OOPs/inheritance/house.dart';
 
 void main() {
   runApp(MyApp());
@@ -48,9 +49,14 @@ class _MyAppState extends State {
 
   CustomHouse h2 = CustomHouse(10, 12, 14, 4);
 
+  Week week = Week.monday;
+
   @override
   Widget build(BuildContext context) {
-    print(h2.length);
+    for (Week day in Week.values) {
+      print(day);
+    }
+    print(week.index);
     return MaterialApp(
       home: Scaffold(
           appBar: AppBar(
