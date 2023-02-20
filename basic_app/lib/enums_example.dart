@@ -10,3 +10,5 @@ enum Week {
   // ALL of these are public, static, AND final
   // Since it's final, you can't create child enums
 }
+
+enum Animals { dogs, cats, fishes, birds }

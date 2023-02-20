@@ -49,14 +49,20 @@ class _MyAppState extends State {
 
   CustomHouse h2 = CustomHouse(10, 12, 14, 4);
 
-  Week week = Week.monday;
+  void switchExample(Week week) {
+    switch (week) {
+      case Week.monday:
+        print('People usually hate mondays for some reason');
+        break;
+      case Week.tuesday:
+        print('Tuesdays are weird AF');
+        break;
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
-    for (Week day in Week.values) {
-      print(day);
-    }
-    print(week.index);
+    switchExample(Week.tuesday);
     return MaterialApp(
       home: Scaffold(
           appBar: AppBar(

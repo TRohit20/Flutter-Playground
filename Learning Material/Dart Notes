@@ -107,3 +107,7 @@ When you want one constructor to call another constructor under the hood, it’s
 Enums: 
 Group of variables that you cannot change(Like a constant)
 For a particular class, you will need only particular no. of objects only
+
+The naming convention for enums is that the 1st letter should always be Capital for all variables etc.
+Enums are supposed to be the top level. They cannot be inside a class
+Switch is the way usually used in order to work with enums
