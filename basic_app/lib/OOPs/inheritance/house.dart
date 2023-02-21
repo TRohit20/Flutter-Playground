@@ -15,4 +15,11 @@ class House {
   factory House.random() {
     return House(10, 12, 1243);
   }
+
+// Custom Operator or Overriding
+  @override
+  bool operator ==(covariant House other) => other.length == length;
+
+  @override
+  int get hashCode => length.hashCode;
 }
