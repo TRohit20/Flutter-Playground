@@ -57,6 +57,9 @@ class _MyAppState extends State {
       case Week.tuesday:
         print('Tuesdays are weird AF');
         break;
+      case Week.sunday:
+        print('Absolute best days');
+        return;
     }
   }
 

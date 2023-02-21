@@ -1,3 +1,5 @@
+import 'dart:math';
+
 class House {
   double? length;
   double? width;
@@ -7,5 +9,10 @@ class House {
     this.length = length;
     width = width;
     squareFeet = squareFeet;
+  }
+
+// Factory Constructor
+  factory House.random() {
+    return House(10, 12, 1243);
   }
 }
