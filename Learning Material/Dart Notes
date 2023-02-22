@@ -159,3 +159,35 @@ Getter method is used to retrieve a particular class field and save it in a vari
 its like a property that can only be read from but cannot be written to
 
 Setter Method isused to set the data inside a variable received from the getter method. All classes have a default setter method but it can be overridden explicitly. The setter method can be defined using the set keyword 
+
+Futures:
+As the name suggests, it's used for data to be returned in the future or after sometime which is part of asynchronous programming.
+
+What are synchronous and asynchronous tasks?
+Synchronous is when a task is executed when you ask for it and it returns with data when you do immediately
+While asynchronous tasks are tasks which will return values but not immediately. It'll take some time.
+
+Another way to put this is: 
+In synchronous programming, you have to wait for current task to complete in order to move on to the next one. While in asynchronous programming, You can move on to the next task as the currrent one is executed.
+
+So you use 'future' in dart for asynchronous programming.
+
+But to use future or asynchronous programming, you need understand about async/await
+The mechanism of controlling the flow of data
+
+Async and Await:
+They are both very related but different.
+Async in dart is a keyword that marks a function or method as asynchronous!
+Meaning that a function that is declared asynchronous, it can have a logic that doesnt necessarily have to return data or values immediately
+or it can internally call other funcs that do asynchronous work.
+
+When you do this, you are returning the future but not the value. So how do you get the data back?
+We do that by prefixing the func with the keyword await.
+
+What does await do?
+As the name suggests it literally waits for the data to return before it moves onto the next statement or line.
+
+So they are related. You cannot use await without async-ing the function per say. 
+Logical isn't it?
+
+Futures are often used for APIs that are implemented using a different thread or isolate 

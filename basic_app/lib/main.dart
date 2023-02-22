@@ -5,6 +5,7 @@ import './question.dart';
 // import './test.dart';
 import 'OOPs/object_oriented.dart';
 import 'enums_example.dart';
+import 'asynchronous.dart';
 
 void main() {
   runApp(MyApp());
@@ -64,10 +65,15 @@ class _MyAppState extends State {
     }
   }
 
+// Await and Async
+  void example() async {
+    final data = await exampleOfFuture(12);
+    print(data);
+  }
+
   @override
   Widget build(BuildContext context) {
-    switchExample(Week.tuesday);
-    print(h1.getLength);
+    example();
     return MaterialApp(
       home: Scaffold(
           appBar: AppBar(
