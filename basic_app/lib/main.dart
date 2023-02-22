@@ -1,11 +1,10 @@
 import 'package:basic_app/OOPs/inheritance/customHouse.dart';
+import 'package:basic_app/OOPs/inheritance/house.dart';
 import 'package:flutter/material.dart';
 import './question.dart';
 // import './test.dart';
 import 'OOPs/object_oriented.dart';
 import 'enums_example.dart';
-// import 'package:basic_app/OOPs/object_oriented.dart';
-// import 'OOPs/inheritance/house.dart';
 
 void main() {
   runApp(MyApp());
@@ -47,7 +46,9 @@ class _MyAppState extends State {
     address: 'Hey this is the X employee\'s address ',
   );
 
-  CustomHouse h2 = CustomHouse(10, 12, 14, 4);
+  CustomHouse h2 = new CustomHouse(10, 12, 14, 4);
+
+  House h1 = House(123, 123, 14431);
 
   void switchExample(Week week) {
     switch (week) {
@@ -66,6 +67,7 @@ class _MyAppState extends State {
   @override
   Widget build(BuildContext context) {
     switchExample(Week.tuesday);
+    print(h1.getLength);
     return MaterialApp(
       home: Scaffold(
           appBar: AppBar(

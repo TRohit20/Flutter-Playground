@@ -145,3 +145,17 @@ Hash codes must be the same for objects that are equal to each other according t
 Objects that are not equal are allowed to have the same hash code. It is even technically allowed that all instances have the same hash code, but if clashes happen too often, it may reduce the efficiency of hash-based data structures like HashSet or HashMap.
 
 If a subclass overrides hashCode, it should override the operator == operator as well to maintain consistency.
+
+Extensions: (The official documentation of dart has amazing explanation)
+Adding logic to existing classes
+You are basically extending the functionality of a existing class or adding a new one.
+We use the 'extension' keyword 
+WHen you need to add a functionality but it does not really belong or fit in the class itself but it may belong or required in current working source code.
+
+Getter and Setter Methods:
+Getter and setter methods are the class methods used to manipulate the data of the class fields. Getter is used to read or get the data of the class field whereas setter is used to set the data of the class field to some variable.
+
+Getter method is used to retrieve a particular class field and save it in a variable. All classes have a default getter method but it can be overridden explicitly. The getter method can be defined using the get keyword.
+its like a property that can only be read from but cannot be written to
+
+Setter Method isused to set the data inside a variable received from the getter method. All classes have a default setter method but it can be overridden explicitly. The setter method can be defined using the set keyword 

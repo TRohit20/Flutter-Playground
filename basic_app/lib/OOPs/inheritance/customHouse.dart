@@ -8,3 +8,7 @@ class CustomHouse extends House {
     this.rooms = rooms;
   }
 }
+
+extension Length on CustomHouse {
+  double? get getLength => this.length;
+}
