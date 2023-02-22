@@ -191,3 +191,14 @@ So they are related. You cannot use await without async-ing the function per say
 Logical isn't it?
 
 Futures are often used for APIs that are implemented using a different thread or isolate 
+
+Streams:
+The asynchronous pipe of data or Source of asynchronous data events.
+Streams are pipes of continuous data like our digital clock where either completes successfully or never completes or runs into a error and dies out.
+Streams in dart is a pipe of data where Future just continues to work. Calculates, sends it down and repeat.
+
+A Stream provides a way to receive a sequence of events. Each event is either a data event, also called an element of the stream, or an error event, which is a notification that something has failed. When a stream has emitted all its events, a single "done" event notifies the listener that the end has been reached.
+
+You produce a stream using the async function which returns a stream. You consume that stream, then it will lead to function emit events until it ends and stream closes.
+You consume a stream either by using the 'await for' loop
+you are basically awaiting for the stream data.

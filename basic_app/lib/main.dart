@@ -67,8 +67,10 @@ class _MyAppState extends State {
 
 // Await and Async
   void example() async {
-    final data = await exampleOfFuture(12);
-    print(data);
+    await for (var value in getNumbers()) {
+      print(value);
+    }
+    print('Stream is now closed');
   }
 
   @override
