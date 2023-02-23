@@ -75,7 +75,12 @@ class _MyAppState extends State {
 
   @override
   Widget build(BuildContext context) {
-    example();
+    print(syncGenerator());
+    for (final value in syncGenerator()) {
+      if (value > 0) {
+        print(value);
+      }
+    }
     return MaterialApp(
       home: Scaffold(
           appBar: AppBar(

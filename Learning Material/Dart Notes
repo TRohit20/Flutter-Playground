@@ -202,3 +202,23 @@ A Stream provides a way to receive a sequence of events. Each event is either a 
 You produce a stream using the async function which returns a stream. You consume that stream, then it will lead to function emit events until it ends and stream closes.
 You consume a stream either by using the 'await for' loop
 you are basically awaiting for the stream data.
+
+Generator: (you calculate things on the go) -- Lazy Programming
+It is a function that returns a list of things (But internally calculates the data very simply).
+For generating 'iterables' marked by with sync* and async*
+
+Generators in Dart allows the user to produce a sequence of value easily. One can generate a sequence of values in dart with the help of two generator functions :
+
+Synchronous Generator: Returns an Iterable object or things synchronously.
+Asynchronous Generator: Returns a Stream object or things asynchronously. (Stream of Iterables)
+
+Iterables are a kind of collection.
+
+A collection can be empty, or it can contain many elements. Depending on the purpose, collections can have different structures and implementations. These are some of the most common collection types: Lists, Maps and sets
+An Iterable is a collection of elements that can be accessed sequentially.
+
+In Dart, an Iterable is an abstract class, meaning that you can’t instantiate it directly. However, you can create a new Iterable by creating a new List or Set.
+
+But you cannot simply return things or values right? Cz you have to calculate it on the go
+So, we use yield keyword (Yield is only used in generator functions for the most part).
+Yield is basically used to output the data

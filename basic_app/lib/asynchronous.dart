@@ -10,3 +10,16 @@ Stream<int> getNumbers() {
     return value * 3;
   });
 }
+
+// Synchronous Generators
+Iterable<int> syncGenerator() sync* {
+  yield 1;
+  yield 2;
+  yield 3;
+}
+
+// Asynchronous Generators
+Stream<Iterable<int>> asyncGenerators() async* {
+  yield {1, 2, 3};
+  yield {325, 2425, 4};
+}
