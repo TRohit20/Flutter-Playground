@@ -90,7 +90,12 @@ class _MyAppState extends State {
           body: Column(
             children: [
               Question(questions[_questionNumber]),
-              ElevatedButton(onPressed: _count, child: Text('Java')),
+              ElevatedButton(
+                onPressed: _count,
+                child: Text('Java'),
+                style: ButtonStyle(
+                    backgroundColor: MaterialStateProperty.all(Colors.black)),
+              ),
               // Text(questions[questionNumber]),
               ElevatedButton(onPressed: _count, child: Text('Python')),
               // Text(questions[questionNumber]),
