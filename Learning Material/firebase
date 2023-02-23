@@ -7,4 +7,6 @@ It is mandatory for everyone to login to your firebase console, create a project
 You use 'firebase login' in terminal to login to your firebase account
 Once logged in, you need rto configure your project and backend using 'flutterfire config'
 
+firebase needs to be initialised first before any other calls.
+
 Use the official documentaion for more details and any additional info required

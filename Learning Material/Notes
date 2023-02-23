@@ -141,6 +141,8 @@ It cannot consist of any internal data or changes in it.
 While on the other hand, A stateful widget is the same but it has the ability to have a internal state, so the flutter will build or rerender
 when there is change of external data or change in internal state. 
 
+Stateless widgets cannot have data or pieces that are mutable. Stateful does. 
+
 A brief look at what flutter does when setState() is called or used in a stateful widget:
 It is  function that forces flutter to re-render UI but not entirely. It will re-run the build of the widget class where the setState is present.
 
@@ -153,3 +155,23 @@ We can use stateless widget for custom or new ones cz they can take data externa
 
 Core of the container is always the child/content. You can upset padding and margin for it.
 Padding is internal, margin is around the container.
+
+A scaffold is used to make it presentable to the user. Basic Building structures of application.
+
+You can wrap your widgets with other widgets.
+
+text controller or text-editing controller:
+A proxy object that you pass to your textfeild and writes its current text to that controller. 
+It's like between two things: One will allow it to read and the other to send.
+
+late is a keyword used in flutter or dart when you declare a variable without instantiating it. Meaning you have not given it a value but you will give it in the future before it is used. 
+
+When using a stateful widget: It has 2 great functions
+1. init state: will be called automatically by flutter when widget created so you have the ability to create your var or late var once. 
+2. isDisposed: Whenever this widget then dies and goes out of memory or tries to, dispose is called.
+
+When you create a init func or var you are also incharge of disposing them. 
+
+you can use 'hint' in text fields to show the user or give them some hint as to what is expected.
+
+So you use firebase console for configuration not found orso
