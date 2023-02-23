@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "865574596931",
+    "project_id": "flutter-walkthrough-project",
+    "storage_bucket": "flutter-walkthrough-project.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:865574596931:android:22f9751f05eace650b3ff6",
+        "android_client_info": {
+          "package_name": "com.example.walkthrough_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "865574596931-k0src8v96id2g3gamsgnkj6eo0j4qijj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC956nZd_8wn8IPfYUsjn-9y64ORtr9tW8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "865574596931-k0src8v96id2g3gamsgnkj6eo0j4qijj.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

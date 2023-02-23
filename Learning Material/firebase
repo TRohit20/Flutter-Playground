@@ -1,0 +1,10 @@
+Firebase installed for using it as the backend.
+
+We installed the firebase ClI where firebase CLI is a way to interact with firebase right from your terminal.
+
+It is mandatory for everyone to login to your firebase console, create a project first. 
+
+You use 'firebase login' in terminal to login to your firebase account
+Once logged in, you need rto configure your project and backend using 'flutterfire config'
+
+Use the official documentaion for more details and any additional info required
