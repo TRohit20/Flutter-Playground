@@ -5,6 +5,9 @@ This is developed by Google.
 
 You can work with flutter with your existing codebase of an application too. 
 
+An identifier for flutter project is used to define it as unique on App/playstore 
+(It's like reverse domain identifier) rohit.com --> com.rohit.app_name (Makes it unqiue so V Important for life cycle too).
+
 Flutter refers to two major things: 
 1. Flutter SDK(Software Development Kit) - Collection of tools that allwos you to write your app in single codebase and then compile it to native machine code and make development easy. Basically it compiles and allows you to run the code natively on platforms such as IOS and android.
 2. Dart - A framework/widget library that allows you to make the app beautiful that is building the frontend or UI/UX. 

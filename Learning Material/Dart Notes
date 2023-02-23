@@ -222,3 +222,5 @@ In Dart, an Iterable is an abstract class, meaning that you can’t instantiate 
 But you cannot simply return things or values right? Cz you have to calculate it on the go
 So, we use yield keyword (Yield is only used in generator functions for the most part).
 Yield is basically used to output the data
+
+Generics: To avoid re-writing of similar code (we already talked about this in OOPs)
