@@ -43,39 +43,44 @@ class _HomePageState extends State<HomePage> {
           future: Firebase.initializeApp(
               options: DefaultFirebaseOptions.currentPlatform),
           builder: (context, snapshot) {
-            return Column(
-              children: [
-                TextField(
-                  controller: _email,
-                  enableSuggestions: false,
-                  autocorrect: false,
-                  decoration:
-                      const InputDecoration(hintText: 'Enter your E-mail'),
-                ),
-                TextField(
-                  controller: _password,
-                  obscureText: true,
-                  enableSuggestions: false,
-                  autocorrect: false,
-                  keyboardType: TextInputType.emailAddress,
-                  decoration: const InputDecoration(hintText: 'Password'),
-                ),
-                TextButton(
-                  onPressed: () async {
-                    final email =
-                        _email.text; //grabbing the latest text user enters
-                    final password = _password.text;
+            switch (snapshot.connectionState) {
+              case ConnectionState.done:
+                return Column(
+                  children: [
+                    TextField(
+                      controller: _email,
+                      enableSuggestions: false,
+                      autocorrect: false,
+                      decoration:
+                          const InputDecoration(hintText: 'Enter your E-mail'),
+                    ),
+                    TextField(
+                      controller: _password,
+                      obscureText: true,
+                      enableSuggestions: false,
+                      autocorrect: false,
+                      keyboardType: TextInputType.emailAddress,
+                      decoration: const InputDecoration(hintText: 'Password'),
+                    ),
+                    TextButton(
+                      onPressed: () async {
+                        final email =
+                            _email.text; //grabbing the latest text user enters
+                        final password = _password.text;
 
-                    final userCredentials = await FirebaseAuth.instance
-                        .createUserWithEmailAndPassword(
-                            email: email, password: password);
+                        final userCredentials = await FirebaseAuth.instance
+                            .createUserWithEmailAndPassword(
+                                email: email, password: password);
 
-                    print(userCredentials);
-                  },
-                  child: const Text('Register'),
-                ),
-              ],
-            );
+                        print(userCredentials);
+                      },
+                      child: const Text('Register'),
+                    ),
+                  ],
+                );
+              default:
+                return Text('Loading');
+            }
           },
         ));
   }
