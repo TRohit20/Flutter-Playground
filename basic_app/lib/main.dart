@@ -6,9 +6,10 @@ import './question.dart';
 import 'OOPs/object_oriented.dart';
 import 'enums_example.dart';
 import 'asynchronous.dart';
+import 'answer.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 // Another way to do it would be: A way to write func when theres only one expression to execute
@@ -16,6 +17,8 @@ void main() {
 
 // Create the main App widget
 class MyApp extends StatefulWidget {
+  const MyApp({super.key});
+
   @override
   State<StatefulWidget> createState() {
     return _MyAppState();
@@ -47,7 +50,7 @@ class _MyAppState extends State {
     address: 'Hey this is the X employee\'s address ',
   );
 
-  CustomHouse h2 = new CustomHouse(10, 12, 14, 4);
+  CustomHouse h2 = CustomHouse(10, 12, 14, 4);
 
   House h1 = House(123, 123, 14431);
 
@@ -62,6 +65,14 @@ class _MyAppState extends State {
       case Week.sunday:
         print('Absolute best days');
         return;
+      case Week.wednesday:
+        break;
+      case Week.thursday:
+        break;
+      case Week.friday:
+        break;
+      case Week.saturday:
+        break;
     }
   }
 
@@ -84,23 +95,17 @@ class _MyAppState extends State {
     return MaterialApp(
       home: Scaffold(
           appBar: AppBar(
-            title: Text('My First App'),
+            title: const Text('My First App'),
             backgroundColor: Colors.red,
           ),
           body: Column(
             children: [
               Question(questions[_questionNumber]),
-              ElevatedButton(
-                onPressed: _count,
-                child: Text('Java'),
-                style: ButtonStyle(
-                    backgroundColor: MaterialStateProperty.all(Colors.black)),
-              ),
+              Answer(_count),
               // Text(questions[questionNumber]),
-              ElevatedButton(onPressed: _count, child: Text('Python')),
               // Text(questions[questionNumber]),
-              ElevatedButton(
-                  onPressed: () => print('Answer Chosen'), child: Text('C++')),
+              Answer(_count),
+              Answer(_count),
             ],
           )),
     );

@@ -179,3 +179,5 @@ So you use firebase console for configuration not found or so
 Future Builder:
 Takes a future, performs it and once its succeeded or failed and then gives a callback. In that callback it'll ask you to produce a widget you wanna display depending on the state
 tell flutter not to build a widget until a certain thing is done(Futures).
+
+Void Callback function tells flutter that you will get a function here that wont return anything or accept any arguments. 
