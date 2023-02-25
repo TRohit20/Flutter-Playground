@@ -27,9 +27,16 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State {
   var _questionNumber = 0;
+  // Maps
   var questions = [
-    'Which is your Favourite?',
-    'Which do you think is easier?',
+    {
+      'questionText': 'Which is your favourite language?',
+      'options': ['python', 'Java', 'Dart']
+    },
+    {
+      'questionText': 'Which do you think is easier?',
+      'options': ['Python', 'Java', 'C++', 'Dart']
+    }
   ];
 
   void _count() {
@@ -100,12 +107,12 @@ class _MyAppState extends State {
           ),
           body: Column(
             children: [
-              Question(questions[_questionNumber]),
-              Answer(_count),
-              // Text(questions[questionNumber]),
-              // Text(questions[questionNumber]),
-              Answer(_count),
-              Answer(_count),
+              Question(questions[_questionNumber]['questionText'] as String),
+              // Transform list of maps to widgets so the options can be dynamic
+              ...(questions[_questionNumber]['options'] as List<String>)
+                  .map((option) {
+                return Answer(_count, option);
+              }).toList()
             ],
           )),
     );

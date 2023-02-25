@@ -2,8 +2,9 @@ import 'package:flutter/material.dart';
 
 class Answer extends StatelessWidget {
   final VoidCallback callBack;
+  final String answerText;
 
-  const Answer(this.callBack, {super.key});
+  const Answer(this.callBack, this.answerText, {super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -13,7 +14,7 @@ class Answer extends StatelessWidget {
         onPressed: callBack,
         style: const ButtonStyle(
             backgroundColor: MaterialStatePropertyAll(Colors.amber)),
-        child: const Text('Python'),
+        child: Text(answerText),
       ),
     );
   }

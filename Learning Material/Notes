@@ -181,3 +181,8 @@ Takes a future, performs it and once its succeeded or failed and then gives a ca
 tell flutter not to build a widget until a certain thing is done(Futures).
 
 Void Callback function tells flutter that you will get a function here that wont return anything or accept any arguments. 
+
+Callback is basically a function or a method that we pass as an argument into another function or a method to perform an action. In the simplest words, we can say that Callback or VoidCallback are used while sending data from one method to another and vice-versa. It is very important to maintain a continuous flow of data throughout the flutter app.
+
+Maps in dart:
+These are data structures that can store anything inside them in the form of key-value pairs
