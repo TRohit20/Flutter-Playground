@@ -127,11 +127,18 @@ Make yourself familiar with name arguments and using them as they are used widel
 Instead of using a named function to connect the button with a functionality, you can also use a anonymous function but that is when theres only one button.
 If you add () at the end of the anonymous function, then it will be executed immediately.
 
+A widget’s main job is to implement a build() function
+
 Understanding state:
 Data/infromation used by the app is called state. 
 Lets say, we are building a Ecommerce app, for that:
 App state will be user login, products list and cart etc etc
 widget state will be the are we loading data, should we show that? etc.
+
+The State is the information that can be read synchronously when the widget is built and might change during the lifetime of the widget.  
+
+In other words, the state of the widget is the data of the objects that its properties (parameters) are sustaining at the time of its creation (when the widget is painted on the screen). The state can also change when it is used for example when a CheckBox widget is clicked a check appears on the box.
+
 The role of a stateless widget is to simply output the data, while stateful is used for interactive apps etc.
 You can convert your stateless widgets to a stateful widget.
 
@@ -143,8 +150,23 @@ when there is change of external data or change in internal state.
 
 Stateless widgets cannot have data or pieces that are mutable. Stateful does. 
 
+Stateful widget have a longer life span so to say because they can survive a change. Even if the original widget is changed but is of the same type, then the child elements and so stay intact and are rebuild. It's kinda like hot reload.
+
 A brief look at what flutter does when setState() is called or used in a stateful widget:
 It is  function that forces flutter to re-render UI but not entirely. It will re-run the build of the widget class where the setState is present.
+
+* Inherited Widgets:
+Let's say you have nested widgets and you have a piece of data that the widget at the bottom needs from the widget at the top.
+One way to get it would be to add it to all const and build methods (ARGH)
+Instead, we could just reach up the tree to get the data. YOU CAN DO IT
+It's called inherited widget. When you put this widget in your tree, you can reference the data in it from any widget below it. Hence inherited.
+But inherited widgets are immutable.
+Many inherited widgets stay the same for the whole lifecycle of the app
+
+Very important:
+Keys:
+Keys preserve state when widgets move around.
+When to use keys? When you are adding, removing or reordering collection of widgets of same type that hold some state, you use keys. 
 
 Every file inside the lib folder is a mini-library of itself. So, when working with teams or multiple files, it is important to use private properties and what you want to share and what not to in order to ensure that you app doesnt go out of sync or introduce bugs.
 
@@ -183,6 +205,8 @@ tell flutter not to build a widget until a certain thing is done(Futures).
 Void Callback function tells flutter that you will get a function here that wont return anything or accept any arguments. 
 
 Callback is basically a function or a method that we pass as an argument into another function or a method to perform an action. In the simplest words, we can say that Callback or VoidCallback are used while sending data from one method to another and vice-versa. It is very important to maintain a continuous flow of data throughout the flutter app.
+
+Callbacks cannot be future, they have to be read synchronously.
 
 Maps in dart:
 These are data structures that can store anything inside them in the form of key-value pairs
