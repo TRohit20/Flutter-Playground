@@ -37,11 +37,14 @@ it is a list of unique things meaning a data structure that can store and hold d
 It is initialised using flower brackets '{}'
 Set allows you to create a unique set of list.
 
+Sets support spread operators (... and ...?) and collection if and for, just like lists do. For more information, see the list spread operator and list collection operator discussions.
+
 Maps in Dart:
 Maps are data structures that are used to hold key-value pairs of information similar to dictionaries in python(Pretty much same).
 Let us say you are storing a human's data such as age, name, gender, height etc
 The above are keys(properties of a human). Now, they have values right? Hence the key-value pair.
 key inside a map need to be unique.
+Each key occurs only once, but you can use the same value multiple times
 You initialise a map using flower brackets but in this way: 
 ** ref_var = {'property_name':'value','property_name':'value'};
 

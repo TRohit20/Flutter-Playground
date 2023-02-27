@@ -210,3 +210,7 @@ Callbacks cannot be future, they have to be read synchronously.
 
 Maps in dart:
 These are data structures that can store anything inside them in the form of key-value pairs
+
+We used the .map function in order to transform the list of maps to list of widgets so we can use it more effectively or dynamically. It does not use the same list refered to. It creates a new list of its own and carries out the body of func on it.
+
+'as' keyword is used to tell dart that 'hey this will have a specific data type, I know it'
