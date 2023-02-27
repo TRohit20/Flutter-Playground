@@ -160,13 +160,22 @@ Let's say you have nested widgets and you have a piece of data that the widget a
 One way to get it would be to add it to all const and build methods (ARGH)
 Instead, we could just reach up the tree to get the data. YOU CAN DO IT
 It's called inherited widget. When you put this widget in your tree, you can reference the data in it from any widget below it. Hence inherited.
-But inherited widgets are immutable.
+But inherited widgets are immutable. (You can replace the inherited widget only by rebuilding it)
 Many inherited widgets stay the same for the whole lifecycle of the app
+While inherited widgets are immutable and properties are final. The value cannot be reassigned but doesnt mean you can't internally change them! 
+Instead of a value, you can instead attach a service object (It'll have its own internal state) 
+so you can use it to call methods or subscribe to streams and so on.
+
+A inherited widget usually often has a static 'of' method which calls the inherit widget of exact type method for you.
 
 Very important:
 Keys:
-Keys preserve state when widgets move around.
+Keys preserve state when widgets move around or across widgets tree.
 When to use keys? When you are adding, removing or reordering collection of widgets of same type that hold some state, you use keys. 
+
+Keys are not required if the entire sub-tree or widgets in your collection are stateless
+
+*** Put the key at the top of the widget tree you want preserved and choose the key type you are using based on the type of data(state) you are storing in that widget.
 
 Every file inside the lib folder is a mini-library of itself. So, when working with teams or multiple files, it is important to use private properties and what you want to share and what not to in order to ensure that you app doesnt go out of sync or introduce bugs.
 
@@ -221,3 +230,9 @@ you use 'const' keyword when you know you will never change the value. Hence CON
 You can use 'const' infront of the value of variable too.
 
 To use them well in code, you need to know or have clear understanding of what you want.
+
+the inline underscroll such as :
+class _Person {
+    final _name = 'xxx';
+}
+is used to create a private class and property that can only be used in its own library and file.
