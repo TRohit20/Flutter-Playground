@@ -214,3 +214,10 @@ These are data structures that can store anything inside them in the form of key
 We used the .map function in order to transform the list of maps to list of widgets so we can use it more effectively or dynamically. It does not use the same list refered to. It creates a new list of its own and carries out the body of func on it.
 
 'as' keyword is used to tell dart that 'hey this will have a specific data type, I know it'
+
+Final vs Const:
+you use 'final' keyword when you know that you wont change the value of it once the program runs. It's a "RUN-TIME CONSTANT VALUE"
+you use 'const' keyword when you know you will never change the value. Hence CONSTANT!! It's Compile time constant. It also implicitly means runtime
+You can use 'const' infront of the value of variable too.
+
+To use them well in code, you need to know or have clear understanding of what you want.
