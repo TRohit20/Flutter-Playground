@@ -1,4 +1,4 @@
-# basic_app
+# Basic App
 
 A Flutter project built in the process of learning where this app has all the basics and fundamentals covered.
 
