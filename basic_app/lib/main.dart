@@ -29,19 +29,30 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State {
   var _questionNumber = 0;
+  int _totalScore = 0;
   // Maps
   var questions = [
     {
       'questionText': 'Which is your favourite language?',
-      'options': ['python', 'Java', 'Dart']
+      'options': [
+        {'text': 'python', 'score': 10},
+        {'text': 'Java', 'score': 8},
+        {'text': 'Dart', 'score': 5}
+      ]
     },
     {
       'questionText': 'Which do you think is easier?',
-      'options': ['Python', 'Java', 'C++', 'Dart']
+      'options': [
+        {'text': 'python', 'score': 10},
+        {'text': 'Java', 'score': 8},
+        {'text': 'C++', 'score': 3},
+        {'text': 'Dart', 'score': 5}
+      ]
     }
   ];
 
-  void _count() {
+  void _count(int score) {
+    _totalScore += score;
     // setState method takes a anonymous function as the parameter
     setState(() {
       _questionNumber += 1;
@@ -112,7 +123,7 @@ class _MyAppState extends State {
                   questionNumber: _questionNumber,
                   questions: questions,
                   count: _count)
-              : PostQuizDisplay()),
+              : PostQuizDisplay(_totalScore)),
     );
   }
 }
