@@ -1,5 +1,7 @@
 import 'package:basic_app/OOPs/inheritance/customHouse.dart';
 import 'package:basic_app/OOPs/inheritance/house.dart';
+import 'package:basic_app/postQuizDisaplay.dart';
+import 'package:basic_app/quiz.dart';
 import 'package:flutter/material.dart';
 import './question.dart';
 // import './test.dart';
@@ -106,25 +108,11 @@ class _MyAppState extends State {
             backgroundColor: Colors.red,
           ),
           body: _questionNumber < questions.length
-              ? Column(
-                  children: [
-                    Question(
-                        questions[_questionNumber]['questionText'] as String),
-                    // Transform list of maps to widgets so the options can be dynamic
-                    ...(questions[_questionNumber]['options'] as List<String>)
-                        .map((option) {
-                      return Answer(_count, option);
-                    }).toList()
-                  ],
-                )
-              : Center(
-                  child: DecoratedBox(
-                      decoration: BoxDecoration(
-                          color: Colors.amber,
-                          borderRadius: BorderRadius.circular(10)),
-                      child:
-                          const Text('Wow, You answered all the questions!')),
-                )),
+              ? Quiz(
+                  questionNumber: _questionNumber,
+                  questions: questions,
+                  count: _count)
+              : PostQuizDisplay()),
     );
   }
 }
