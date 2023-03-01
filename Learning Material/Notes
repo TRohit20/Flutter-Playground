@@ -243,3 +243,12 @@ Each widget has a internal method called createElement which is called. And Elem
 Each refer to the widget they represent
 Each element is a type of Buildcontext.
 So using buildcontext basically means it is a thing that allows widget to figure out where it is. (The context it needs)
+
+Working with Assets
+Assets are resources such as images, fonts, and other files that are included in your app. To use assets in Flutter, you need to specify them in your app’s pubspec.yaml file and then access them in your code.
+
+Here’s how to work with assets in Flutter:
+
+Add assets to your app’s pubspec.yaml file:
+Access assets in your code
+The pubspec.yaml file is used to manage dependencies, assets, and other settings in your Flutter app. The flutter section is used to specify assets that should be included with the app. The path specified in the assets section should be relative to the pubspec.yaml file.
