@@ -61,6 +61,13 @@ class _MyAppState extends State {
     print(_questionNumber);
   }
 
+  void _resetQuiz() {
+    setState(() {
+      _totalScore = 0;
+      _questionNumber = 0;
+    });
+  }
+
   List<String>? naam = ['Karthik'];
   Employee rohit = Employee(
     'Rohit',
@@ -123,7 +130,7 @@ class _MyAppState extends State {
                   questionNumber: _questionNumber,
                   questions: questions,
                   count: _count)
-              : PostQuizDisplay(_totalScore)),
+              : PostQuizDisplay(_totalScore, _resetQuiz)),
     );
   }
 }

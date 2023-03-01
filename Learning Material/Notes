@@ -236,3 +236,10 @@ class _Person {
     final _name = 'xxx';
 }
 is used to create a private class and property that can only be used in its own library and file.
+
+BuildContext: (Every widget takes this arg)
+Every widget is a recipe or blueprint of how that UI should be. Since the Widget can be used anywhere, widget doesnt know where in the tree a instance is. 
+Each widget has a internal method called createElement which is called. And Elements are the objects that actually keep track of info needed at runtime such as parent, child, renderobject etc
+Each refer to the widget they represent
+Each element is a type of Buildcontext.
+So using buildcontext basically means it is a thing that allows widget to figure out where it is. (The context it needs)
