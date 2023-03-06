@@ -1,16 +1,11 @@
 # cupertino_design_app
 
-A new Flutter project.
+As the name suggests, this is just a app built to try out the cupertino design theme which is similar to native IOS. 
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+Using the design language of IOS, we built this small toy project to play around with the theme. 
 
-A few resources to get you started if this is your first Flutter project:
+## Contribute
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+- You are more than welcome to contribute to the project, You can get started by reading the [contributing.md](https://github.com/TRohit20/Flutter-Playground/blob/main/contributing.md) file.
