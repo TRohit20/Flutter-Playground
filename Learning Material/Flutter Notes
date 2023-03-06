@@ -252,3 +252,19 @@ Here’s how to work with assets in Flutter:
 Add assets to your app’s pubspec.yaml file:
 Access assets in your code
 The pubspec.yaml file is used to manage dependencies, assets, and other settings in your Flutter app. The flutter section is used to specify assets that should be included with the app. The path specified in the assets section should be relative to the pubspec.yaml file.
+
+Widgets Catalog:
+For App/Home page Setup:
+Material app or Cupertino App
+Scaffold or CupternioScaffold
+For layout (Which is equally important):
+Container, Row and column 
+Inside the row and column we can again use child widgets like flexible and expandable in any way we want.
+For holding content- Content containers:
+Stack, Card 
+For repeating content:
+Listview, GridView. You can use a listTile widget inside a listview widget if you want
+For different content types:
+Text, Image, Font, Icon
+For user input:
+TextField, Buttons or Custom buttons using invisible widgets like Gesturedetector, inkwell
