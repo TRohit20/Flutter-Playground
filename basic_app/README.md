@@ -1,6 +1,6 @@
 # Basic App
 
-A Flutter project built in the process of learning where this app has all the basics and fundamentals covered.
+As the name suggests, this is a Flutter project built in the process of learning where this app has all the basics and fundamentals covered.
 
 ## Getting Started
 
@@ -15,8 +15,7 @@ This project is a starting point for Flutter.
 
 ## Contributions
 
-If you feel like you want to add or change something here, feel free to do so by first raising a issue mentioning the changes you'd like.
-Once assigned, you can go ahead make the changes and open a PR to fix the same. :) 
+Feel free to contribute the project, you can get started by reading the [contributing.md](https://github.com/TRohit20/Flutter-Playground/blob/main/contributing.md) file. 
 
 
 For help getting started with Flutter development, view the
