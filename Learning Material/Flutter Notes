@@ -268,3 +268,7 @@ For different content types:
 Text, Image, Font, Icon
 For user input:
 TextField, Buttons or Custom buttons using invisible widgets like Gesturedetector, inkwell
+
+Column and Row:
+In a column and row you can configure a crossAxisAlignment or mainAxisAlignment
+These are two core config options you have to config how your column behaves
