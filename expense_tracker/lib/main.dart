@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
+import './transactions.dart';
 
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  // const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
       title: 'Expense Tracker App',
       home: MyHomePage(),
     );
@@ -15,7 +16,12 @@ class MyApp extends StatelessWidget {
 }
 
 class MyHomePage extends StatelessWidget {
-  const MyHomePage({super.key});
+  // const MyHomePage({super.key});
+
+  final List<Transactions> transactions = [
+    Transactions(amount: 70000, date: DateTime.now(), title: 'New Shoes'),
+    Transactions(amount: 35000, date: DateTime.now(), title: 'New Watch')
+  ];
 
   @override
   Widget build(BuildContext context) {
