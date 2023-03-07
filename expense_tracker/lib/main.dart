@@ -41,9 +41,13 @@ class MyHomePage extends StatelessWidget {
                   width: 300, color: Colors.amber, child: Text('Charts')),
             ),
           ),
-          const Card(
-            elevation: 15,
-            child: Text('List of transactions'),
+          Column(
+            // Using .map to transform objs to list of widgets and we use .list cz .map outputs iterables.
+            children: transactions.map((tx) {
+              return Card(
+                child: Text(tx.title),
+              );
+            }).toList(),
           )
         ],
       ),
