@@ -28,6 +28,7 @@ class MyHomePage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Expense Tracker App'),
+        backgroundColor: Colors.green,
       ),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
@@ -49,12 +50,34 @@ class MyHomePage extends StatelessWidget {
                 child: Row(
                   children: <Widget>[
                     Container(
-                      child: Text(tx.amount.toString()),
+                      margin: const EdgeInsets.all(15),
+                      padding: const EdgeInsets.all(10),
+                      decoration: BoxDecoration(
+                          border: Border.all(color: Colors.red, width: 2)),
+                      child: Text(
+                        tx.amount.toString(),
+                        style: const TextStyle(
+                            color: Colors.black,
+                            fontSize: 15,
+                            fontWeight: FontWeight.bold),
+                      ),
                     ),
                     Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
-                        Text(tx.title),
-                        Text(tx.date.toString())
+                        Text(
+                          tx.title,
+                          style: const TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 18,
+                          ),
+                        ),
+                        Text(
+                          tx.date.toString(),
+                          style:
+                              const TextStyle(color: Colors.grey, fontSize: 13),
+                        )
                       ],
                     )
                   ],
