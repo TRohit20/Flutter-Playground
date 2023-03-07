@@ -273,4 +273,11 @@ Column and Row:
 In a column and row you can configure a crossAxisAlignment or mainAxisAlignment
 These are two core config options you have to config how your column behaves
 
-You can mix rows and columns without any limitations
+You can mix rows and columns without any limitations.
+
+You have to understand how containers and row/column work together and how they different too.
+(Remember that you use them together by combining or so. They are flexible to use together)
+- A container takes in only one child widget while row/column can take unlimited child widgets
+- A container offers rich alignment & styling options while row/column give you aligning but no styling options
+- Flexible width/height for container while Column always takes full available column and row takes full available width
+- A container is go to widget if you wanna wrap and style a widget (Due to custom styling and alignment), while row/column are must use if you want elements to sit next/above eachother

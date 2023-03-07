@@ -19,8 +19,8 @@ class MyHomePage extends StatelessWidget {
   // const MyHomePage({super.key});
 
   final List<Transactions> transactions = [
-    Transactions(amount: 70000, date: DateTime.now(), title: 'New Shoes'),
-    Transactions(amount: 35000, date: DateTime.now(), title: 'New Watch')
+    Transactions(amount: 300, date: DateTime.now(), title: 'New Shoes'),
+    Transactions(amount: 700, date: DateTime.now(), title: 'New Watch')
   ];
 
   @override
@@ -46,6 +46,7 @@ class MyHomePage extends StatelessWidget {
             // Using .map to transform objs to list of widgets and we use .list cz .map outputs iterables.
             children: transactions.map((tx) {
               return Card(
+                color: Colors.green[200],
                 // Using Columns inside rows and both inside a card
                 child: Row(
                   children: <Widget>[
@@ -55,7 +56,8 @@ class MyHomePage extends StatelessWidget {
                       decoration: BoxDecoration(
                           border: Border.all(color: Colors.red, width: 2)),
                       child: Text(
-                        tx.amount.toString(),
+                        // In interpolation, when you are not just using a variable, but calling a property or more, then {} are used to wrap that expression
+                        '\$ ${tx.amount}',
                         style: const TextStyle(
                             color: Colors.black,
                             fontSize: 15,
