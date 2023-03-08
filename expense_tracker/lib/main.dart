@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import './transactions.dart';
+import 'package:intl/intl.dart';
 
 void main() => runApp(MyApp());
 
@@ -27,7 +28,10 @@ class MyHomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Expense Tracker App'),
+        title: const Text(
+          'Expense Tracker App',
+          style: TextStyle(fontWeight: FontWeight.bold),
+        ),
         backgroundColor: Colors.green,
       ),
       body: Column(
@@ -76,7 +80,8 @@ class MyHomePage extends StatelessWidget {
                           ),
                         ),
                         Text(
-                          tx.date.toString(),
+                          // DateFormat('dd-MM-yyyy').format(tx.date),
+                          DateFormat.yMMMd().format(tx.date),
                           style:
                               const TextStyle(color: Colors.grey, fontSize: 13),
                         )
