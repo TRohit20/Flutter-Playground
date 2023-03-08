@@ -1,6 +1,8 @@
+import 'package:expense_tracker/widgets/new_transaction.dart';
 import 'package:flutter/material.dart';
-import './transactions.dart';
 import 'package:intl/intl.dart';
+import './widgets/transactions_list.dart';
+import './models/transactions.dart';
 
 void main() => runApp(MyApp());
 
@@ -18,14 +20,6 @@ class MyApp extends StatelessWidget {
 
 class MyHomePage extends StatelessWidget {
   // const MyHomePage({super.key});
-
-  final transactionTitle = TextEditingController();
-  final transactionAmount = TextEditingController();
-
-  final List<Transactions> transactions = [
-    Transactions(amount: 300, date: DateTime.now(), title: 'New Shoes'),
-    Transactions(amount: 700, date: DateTime.now(), title: 'New Watch')
-  ];
 
   @override
   Widget build(BuildContext context) {
@@ -50,83 +44,6 @@ class MyHomePage extends StatelessWidget {
             ),
           ),
           // ignore: prefer_const_literals_to_create_immutables
-          Card(
-            elevation: 10,
-            child: Container(
-              padding: const EdgeInsets.all(10),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                // ignore: prefer_const_literals_to_create_immutables
-                children: <Widget>[
-                  TextField(
-                    decoration:
-                        const InputDecoration(labelText: 'Name of expense'),
-                    controller: transactionTitle,
-                    // onChanged: (value) => transactionTitle = value,),
-                  ),
-                  TextField(
-                    decoration: const InputDecoration(labelText: 'Amount'),
-                    controller: transactionAmount,
-                  ),
-                  ElevatedButton(
-                    onPressed: () {},
-                    style: const ButtonStyle(
-                        backgroundColor:
-                            MaterialStatePropertyAll(Colors.green)),
-                    child: const Text(
-                      'Add transaction',
-                    ),
-                  )
-                ],
-              ),
-            ),
-          ),
-          Column(
-            // Using .map to transform objs to list of widgets and we use .list cz .map outputs iterables.
-            children: transactions.map((tx) {
-              return Card(
-                color: Colors.green[200],
-                // Using Columns inside rows and both inside a card
-                child: Row(
-                  children: <Widget>[
-                    Container(
-                      margin: const EdgeInsets.all(15),
-                      padding: const EdgeInsets.all(10),
-                      decoration: BoxDecoration(
-                          border: Border.all(color: Colors.red, width: 2)),
-                      child: Text(
-                        // In interpolation, when you are not just using a variable, but calling a property or more, then {} are used to wrap that expression
-                        '\$ ${tx.amount}',
-                        style: const TextStyle(
-                            color: Colors.black,
-                            fontSize: 15,
-                            fontWeight: FontWeight.bold),
-                      ),
-                    ),
-                    Column(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: <Widget>[
-                        Text(
-                          tx.title,
-                          style: const TextStyle(
-                            fontWeight: FontWeight.bold,
-                            fontSize: 18,
-                          ),
-                        ),
-                        Text(
-                          // DateFormat('dd-MM-yyyy').format(tx.date),
-                          DateFormat.yMMMd().format(tx.date),
-                          style:
-                              const TextStyle(color: Colors.grey, fontSize: 13),
-                        )
-                      ],
-                    )
-                  ],
-                ),
-              );
-            }).toList(),
-          )
         ],
       ),
     );
