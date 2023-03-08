@@ -19,6 +19,9 @@ class MyApp extends StatelessWidget {
 class MyHomePage extends StatelessWidget {
   // const MyHomePage({super.key});
 
+  final transactionTitle = TextEditingController();
+  final transactionAmount = TextEditingController();
+
   final List<Transactions> transactions = [
     Transactions(amount: 300, date: DateTime.now(), title: 'New Shoes'),
     Transactions(amount: 700, date: DateTime.now(), title: 'New Watch')
@@ -35,7 +38,7 @@ class MyHomePage extends StatelessWidget {
         backgroundColor: Colors.green,
       ),
       body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
+        // mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
           Container(
@@ -44,6 +47,38 @@ class MyHomePage extends StatelessWidget {
               elevation: 10,
               child: Container(
                   width: 300, color: Colors.amber, child: Text('Charts')),
+            ),
+          ),
+          // ignore: prefer_const_literals_to_create_immutables
+          Card(
+            elevation: 10,
+            child: Container(
+              padding: const EdgeInsets.all(10),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                // ignore: prefer_const_literals_to_create_immutables
+                children: <Widget>[
+                  TextField(
+                    decoration:
+                        const InputDecoration(labelText: 'Name of expense'),
+                    controller: transactionTitle,
+                    // onChanged: (value) => transactionTitle = value,),
+                  ),
+                  TextField(
+                    decoration: const InputDecoration(labelText: 'Amount'),
+                    controller: transactionAmount,
+                  ),
+                  ElevatedButton(
+                    onPressed: () {},
+                    style: const ButtonStyle(
+                        backgroundColor:
+                            MaterialStatePropertyAll(Colors.green)),
+                    child: const Text(
+                      'Add transaction',
+                    ),
+                  )
+                ],
+              ),
             ),
           ),
           Column(
