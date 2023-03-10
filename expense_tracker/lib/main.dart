@@ -12,6 +12,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Expense Tracker App',
+      theme: ThemeData(primarySwatch: Colors.green),
       home: MyHomePage(),
     );
   }
@@ -58,7 +59,7 @@ class _MyHomePageState extends State<MyHomePage> {
           'Expense Tracker App',
           style: TextStyle(fontWeight: FontWeight.bold),
         ),
-        backgroundColor: Colors.green,
+        backgroundColor: Theme.of(context).primaryColor,
         // Used to add any widgets or icons to the appbar
         actions: <Widget>[
           IconButton(
@@ -87,8 +88,8 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () => _startsToAddNewTransaction(context),
-        child: Icon(Icons.add),
-        backgroundColor: Colors.green,
+        backgroundColor: Theme.of(context).primaryColor,
+        child: const Icon(Icons.add),
       ),
       // floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
     );
