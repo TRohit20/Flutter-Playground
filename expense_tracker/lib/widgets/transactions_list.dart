@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 import '../models/transactions.dart';
 import 'package:intl/intl.dart';
-import '../widgets/user_transactions.dart';
 
-// ignore: use_key_in_widget_constructors
 class TransactionList extends StatelessWidget {
   final List<Transactions> transactions;
 
+  // Using constructor to pass data from parent to child
+  // Using this to pass the transactions data
   TransactionList(this.transactions);
 
   @override
-  Widget build(BuildContext ctx) {
+  Widget build(BuildContext context) {
     return Column(
       // Using .map to transform objs to list of widgets and we use .list cz .map outputs iterables.
       children: transactions.map((tx) {

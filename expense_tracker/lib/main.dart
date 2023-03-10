@@ -1,8 +1,5 @@
-import 'package:expense_tracker/widgets/new_transaction.dart';
+import 'package:expense_tracker/widgets/user_transactions.dart';
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
-import './widgets/transactions_list.dart';
-import './models/transactions.dart';
 
 void main() => runApp(MyApp());
 
@@ -44,6 +41,7 @@ class MyHomePage extends StatelessWidget {
             ),
           ),
           // ignore: prefer_const_literals_to_create_immutables
+          UserTransactions(),
         ],
       ),
     );

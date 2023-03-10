@@ -1,8 +1,14 @@
+import 'package:expense_tracker/widgets/user_transactions.dart';
 import 'package:flutter/material.dart';
 
 class NewTransaction extends StatelessWidget {
+  // Saving the input per every key stroke
   final transactionTitle = TextEditingController();
   final transactionAmount = TextEditingController();
+
+  final Function newTransaction;
+
+  NewTransaction(this.newTransaction);
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +30,10 @@ class NewTransaction extends StatelessWidget {
               controller: transactionAmount,
             ),
             ElevatedButton(
-              onPressed: () {},
+              onPressed: () {
+                newTransaction(transactionTitle.text,
+                    double.parse(transactionAmount.text));
+              },
               style: const ButtonStyle(
                   backgroundColor: MaterialStatePropertyAll(Colors.green)),
               child: const Text(
