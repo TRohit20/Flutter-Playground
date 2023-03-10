@@ -312,3 +312,9 @@ Now you can use listView either by passing various children as arguments or you 
 
 * showModalBottomSheet:
   It is a function that is provided by flutter to 
+
+* Flutter internal working -> Seperation of data and UI
+reevaluates it's widgets from time to time. So for a stateless widget a widget being reevaluated means any internally stored data is lost.
+While for a stateful widget, it has a seperate state object/class, which is detached. So while the widget is reevaluated, state is kinda detached so data stored in it will not be lost. 
+
+* To access a data or func from constructor class to state object class. Flutter provides us with a implementation called widget property

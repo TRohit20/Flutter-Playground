@@ -1,13 +1,19 @@
 import 'package:flutter/material.dart';
 
-class NewTransaction extends StatelessWidget {
-  // Saving the input per every key stroke
-  final transactionTitle = TextEditingController();
-  final transactionAmount = TextEditingController();
-
+class NewTransaction extends StatefulWidget {
   final Function newTransaction;
 
   NewTransaction(this.newTransaction);
+
+  @override
+  State<NewTransaction> createState() => _NewTransactionState();
+}
+
+class _NewTransactionState extends State<NewTransaction> {
+  // Saving the input per every key stroke
+  final transactionTitle = TextEditingController();
+
+  final transactionAmount = TextEditingController();
 
   void submitData() {
     final enteredTitle = transactionTitle.text;
@@ -18,7 +24,15 @@ class NewTransaction extends StatelessWidget {
       return;
     }
 
-    newTransaction(transactionTitle.text, double.parse(transactionAmount.text));
+    // Flutter internally provides this widget property
+    // This is only available in the State class and gives you access to the connected widget
+    // In order to access func or data from widget class from inside of this state class
+    widget.newTransaction(
+        transactionTitle.text, double.parse(transactionAmount.text));
+
+    // Calling the pop function from Navigator class using .of(context) method
+    // This is used to close the top most widget or layer on screen (in this case the bottom sheet after submitting data)
+    Navigator.of(context).pop();
   }
 
   @override
