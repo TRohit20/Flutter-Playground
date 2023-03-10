@@ -293,3 +293,17 @@ Input values are always String.
 * SingleChildScrollView:
 It is widget used to scroll column or row. But it has to be used at body because else it would not know the container size that it can scroll in. 
 So you could use it inside a container with defined height though as demonstrated.
+
+* ListView:
+It is a widget provided by flutter which by default is a column with singlechildscrollview. You have bunch of properties and things that you can work with.
+You can use 'scrolldirection' to determine if you want the listview to be for column or row
+But it has infinite height unlike column(Which takes the space it wants). It's height is always higher than that of Screen size
+So you can use a wrapper to define the height
+
+Now you can use listView either by passing various children as arguments or you can use the builder method(A constructor that's present)
+- ListView(children: []):
+    Here it is basically a column with list of widgets/items that have singlechild scrollview and it loads all the widgets that are passed are rendered even if they are off-screen (Not efficient, leads to lag and bad memory)
+- ListView.builder():
+    In simple terms, lazy loading
+    It has optimisations meaning it only renders the items/widgets in list that are visible. Parts not on screen are not loaded/rendered
+    It is better to use listView.builder when the list is long or the contents and length of list are unknown.
