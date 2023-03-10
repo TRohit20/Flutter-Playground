@@ -1,5 +1,7 @@
-import 'package:expense_tracker/widgets/user_transactions.dart';
+import 'package:expense_tracker/widgets/new_transaction.dart';
+import './widgets/transactions_list.dart';
 import 'package:flutter/material.dart';
+import './models/transactions.dart';
 
 void main() => runApp(MyApp());
 
@@ -15,8 +17,38 @@ class MyApp extends StatelessWidget {
   }
 }
 
-class MyHomePage extends StatelessWidget {
+class MyHomePage extends StatefulWidget {
   // const MyHomePage({super.key});
+
+  @override
+  _MyHomePageState createState() => _MyHomePageState();
+}
+
+class _MyHomePageState extends State<MyHomePage> {
+  final List<Transactions> _userTransactions = [
+    Transactions(amount: 300, date: DateTime.now(), title: 'New Shoes'),
+    Transactions(amount: 700, date: DateTime.now(), title: 'New Watch')
+  ];
+
+  void _addingNewTransaction(String title, double amount) {
+    final newTransaction =
+        Transactions(amount: amount, date: DateTime.now(), title: title);
+
+    setState(() {
+      _userTransactions.add(newTransaction);
+    });
+  }
+
+  // Function to provide the Bottom Modal
+  void _startsToAddNewTransaction(BuildContext ctx) {
+    // UKW Context does, Builder is a function that'll return the widget that should be inside
+    showModalBottomSheet(
+        context: ctx,
+        builder: (_) {
+          // We are ignoring context of this builder for now
+          return NewTransaction(_addingNewTransaction);
+        });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -31,7 +63,7 @@ class MyHomePage extends StatelessWidget {
         actions: <Widget>[
           IconButton(
             icon: Icon(Icons.add),
-            onPressed: () {},
+            onPressed: () => _startsToAddNewTransaction(context),
           )
         ],
       ),
@@ -49,12 +81,12 @@ class MyHomePage extends StatelessWidget {
               ),
             ),
             // ignore: prefer_const_literals_to_create_immutables
-            UserTransactions(),
+            TransactionList(_userTransactions),
           ],
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {},
+        onPressed: () => _startsToAddNewTransaction(context),
         child: Icon(Icons.add),
         backgroundColor: Colors.green,
       ),
