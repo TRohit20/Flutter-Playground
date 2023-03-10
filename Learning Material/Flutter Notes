@@ -307,3 +307,5 @@ Now you can use listView either by passing various children as arguments or you 
     In simple terms, lazy loading
     It has optimisations meaning it only renders the items/widgets in list that are visible. Parts not on screen are not loaded/rendered
     It is better to use listView.builder when the list is long or the contents and length of list are unknown.
+
+* '_' a Underscroll inside functions arguments is a convention used to convey that we are supposed to receive a argument, but we dont care about it or use it but i Have to accept it. 

@@ -27,7 +27,7 @@ class TransactionList extends StatelessWidget {
                       border: Border.all(color: Colors.red, width: 2)),
                   child: Text(
                     // In interpolation, when you are not just using a variable, but calling a property or more, then {} are used to wrap that expression
-                    '\$ ${transactions[index].amount}', // Accessing the specific transaction
+                    '\$ ${transactions[index].amount.toStringAsFixed(2)}', // Accessing the specific transaction
                     style: const TextStyle(
                         color: Colors.black,
                         fontSize: 15,
