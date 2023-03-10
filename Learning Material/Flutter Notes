@@ -289,3 +289,7 @@ You have to understand how containers and row/column work together and how they 
 
 TextField is a widget used for input of tect from the user.
 Input values are always String.
+
+* SingleChildScrollView:
+It is widget used to scroll column or row. But it has to be used at body because else it would not know the container size that it can scroll in. 
+So you could use it inside a container with defined height though as demonstrated.

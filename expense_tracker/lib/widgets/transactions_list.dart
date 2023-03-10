@@ -11,6 +11,10 @@ class TransactionList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // return Container(
+    //   height: 500,
+    //   child: SingleChildScrollView(
+    //     child: Column(
     return Column(
       // Using .map to transform objs to list of widgets and we use .list cz .map outputs iterables.
       children: transactions.map((tx) {

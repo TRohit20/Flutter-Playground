@@ -28,21 +28,23 @@ class MyHomePage extends StatelessWidget {
         ),
         backgroundColor: Colors.green,
       ),
-      body: Column(
-        // mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: <Widget>[
-          Container(
-            width: double.infinity,
-            child: Card(
-              elevation: 10,
-              child: Container(
-                  width: 300, color: Colors.amber, child: Text('Charts')),
+      body: SingleChildScrollView(
+        child: Column(
+          // mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: <Widget>[
+            Container(
+              width: double.infinity,
+              child: Card(
+                elevation: 10,
+                child: Container(
+                    width: 300, color: Colors.amber, child: Text('Charts')),
+              ),
             ),
-          ),
-          // ignore: prefer_const_literals_to_create_immutables
-          UserTransactions(),
-        ],
+            // ignore: prefer_const_literals_to_create_immutables
+            UserTransactions(),
+          ],
+        ),
       ),
     );
   }
