@@ -323,3 +323,19 @@ While for a stateful widget, it has a seperate state object/class, which is deta
 A theme basically means a combination of font, sizes, colors, text styles for the entire application meaning the widgets of the app will use it as default.
 The theme takes in a class object called 'ThemeData' which will has a whole lot of properties that can be used to control the nitty gritties if you want to. 
 But you can simple define few properties and be good to go
+
+* Super Useful Link: https://docs.flutter.dev/development/packages-and-plugins 
+* Packages and Plugins:
+- Dart packages
+General packages written in Dart, for example the path package. Some of these might contain Flutter specific functionality and thus have a dependency on the Flutter framework, restricting their use to Flutter only, for example the fluro package.
+- Plugins: A plugin package is a special kind of package that makes platform functionality available to the app. Plugin packages can be written for Android (using Kotlin or Java), iOS (using Swift or Objective-C), web, macOS, Windows, Linux, or any combination thereof. For example, a plugin might provide Flutter apps with the ability to use a device’s camera.
+- Plugin packages
+A specialized Dart package that contains an API written in Dart code combined with one or more platform-specific implementations.
+Plugin packages can be written for Android (using Kotlin or Java), iOS (using Swift or Objective-C), web, macOS, Windows, or Linux, or any combination thereof.
+
+
+* Background processes and Isolates:
+Have you ever wanted to execute Dart code in the background—even if your app wasn’t the currently active app? Perhaps you wanted to implement a process that watches the time, or that catches camera movement. In Flutter, you can execute Dart code in the background.
+
+The mechanism for this feature involves setting up an isolate. Isolates are Dart’s model for multithreading, though an isolate differs from a conventional thread in that it doesn’t share memory with the main program. You’ll set up your isolate for background execution using callbacks and a callback dispatcher.
+

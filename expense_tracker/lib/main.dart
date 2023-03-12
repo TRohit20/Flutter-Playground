@@ -12,7 +12,26 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Expense Tracker App',
-      theme: ThemeData(primarySwatch: Colors.green),
+      theme: ThemeData(
+          primarySwatch: Colors.green,
+          fontFamily: 'OpenSans',
+          // Defining a custom text theme which can be referenced or used globally
+          textTheme:
+              const TextTheme(titleLarge: TextStyle(fontFamily: 'Quicksand')),
+          // Using a AppBar Theme in order to set the theme universal or across multiple pages
+          appBarTheme: AppBarTheme(
+              toolbarTextStyle: ThemeData.light()
+                  .textTheme
+                  .copyWith(
+                      titleLarge:
+                          const TextStyle(fontFamily: 'OpenSans', fontSize: 20))
+                  .bodyMedium,
+              titleTextStyle: ThemeData.light()
+                  .textTheme
+                  .copyWith(
+                      titleLarge:
+                          const TextStyle(fontFamily: 'OpenSans', fontSize: 20))
+                  .titleLarge)),
       home: MyHomePage(),
     );
   }
@@ -45,7 +64,7 @@ class _MyHomePageState extends State<MyHomePage> {
     // UKW Context does, Builder is a function that'll return the widget that should be inside
     showModalBottomSheet(
         context: ctx,
-        builder: (_) {
+        builder: (bctx) {
           // We are ignoring context of this builder for now
           return NewTransaction(_addingNewTransaction);
         });
