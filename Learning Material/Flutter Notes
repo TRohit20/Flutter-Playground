@@ -339,3 +339,4 @@ Have you ever wanted to execute Dart code in the background—even if your app w
 
 The mechanism for this feature involves setting up an isolate. Isolates are Dart’s model for multithreading, though an isolate differs from a conventional thread in that it doesn’t share memory with the main program. You’ll set up your isolate for background execution using callbacks and a callback dispatcher.
 
+Flutter allows you to bring in thrid-party packages to display charts as per your will and requirements
