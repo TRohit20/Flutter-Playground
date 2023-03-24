@@ -13,7 +13,9 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Expense Tracker App',
-      theme: ThemeData(primarySwatch: Colors.green, fontFamily: 'OpenSans'),
+      theme: ThemeData(
+        primarySwatch: Colors.green,
+      ),
       home: MyHomePage(),
     );
   }
@@ -34,6 +36,12 @@ class _MyHomePageState extends State<MyHomePage> {
 
   // Dynamically getting the recent transactions
   List<Transactions> get _recentTransactions {
+    // An Alternative way to FOR Loop is:
+    return _userTransactions.where((transaction) {
+      return transaction.date
+          .isAfter(DateTime.now().subtract(const Duration(days: 7)));
+    }).toList(); // We use .toList to convert the iteraables into a list and return jsut like we did for maps
+
     // 1 way to do it is using FOR loop
     // List<Transactions> recentTransactions = [];
 
@@ -45,12 +53,6 @@ class _MyHomePageState extends State<MyHomePage> {
     //   }
     // }
     // return recentTransactions;
-
-    // An Alternative way is:
-    return _userTransactions.where((transaction) {
-      return transaction.date
-          .isAfter(DateTime.now().subtract(const Duration(days: 7)));
-    }).toList(); // We use .toList to convert the iteraables into a list and return jsut like we did for maps
   }
 
   void _addingNewTransaction(String title, double amount) {

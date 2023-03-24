@@ -42,13 +42,17 @@ class Chart extends StatelessWidget {
       elevation: 20,
       margin: const EdgeInsets.all(20),
       child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: groupedTransactions.map((data) {
-          return ChartBar(
-            (data['amount'] as double),
-            (data['day'] as String),
-            totalAmountSpentInTheWeek == 0
-                ? 0
-                : (data['amount'] as double) / totalAmountSpentInTheWeek,
+          return Flexible(
+            fit: FlexFit.tight,
+            child: ChartBar(
+              (data['amount'] as double),
+              (data['day'] as String),
+              totalAmountSpentInTheWeek == 0
+                  ? 0
+                  : (data['amount'] as double) / totalAmountSpentInTheWeek,
+            ),
           );
         }).toList(),
       ),
