@@ -1,3 +1,4 @@
+import 'package:expense_tracker/widgets/chart.dart';
 import 'package:expense_tracker/widgets/new_transaction.dart';
 import './widgets/transactions_list.dart';
 import 'package:flutter/material.dart';
@@ -30,6 +31,27 @@ class _MyHomePageState extends State<MyHomePage> {
     Transactions(amount: 300, date: DateTime.now(), title: 'New Shoes'),
     Transactions(amount: 700, date: DateTime.now(), title: 'New Watch')
   ];
+
+  // Dynamically getting the recent transactions
+  List<Transactions> get _recentTransactions {
+    // 1 way to do it is using FOR loop
+    // List<Transactions> recentTransactions = [];
+
+    // for (var i = 0; i < _userTransactions.length; i++) {
+    //   if (_userTransactions[i]
+    //       .date
+    //       .isAfter(DateTime.now().subtract(const Duration(days: 7)))) {
+    //     recentTransactions.add(_userTransactions[i]);
+    //   }
+    // }
+    // return recentTransactions;
+
+    // An Alternative way is:
+    return _userTransactions.where((transaction) {
+      return transaction.date
+          .isAfter(DateTime.now().subtract(const Duration(days: 7)));
+    }).toList(); // We use .toList to convert the iteraables into a list and return jsut like we did for maps
+  }
 
   void _addingNewTransaction(String title, double amount) {
     final newTransaction =
@@ -73,14 +95,7 @@ class _MyHomePageState extends State<MyHomePage> {
           // mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
-            Container(
-              width: double.infinity,
-              child: Card(
-                elevation: 10,
-                child: Container(
-                    width: 300, color: Colors.amber, child: Text('Charts')),
-              ),
-            ),
+            Chart(_recentTransactions),
             // ignore: prefer_const_literals_to_create_immutables
             TransactionList(_userTransactions),
           ],

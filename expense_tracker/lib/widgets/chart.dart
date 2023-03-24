@@ -23,12 +23,13 @@ class Chart extends StatelessWidget {
           totalSpent += recentTransactions[i].amount;
         }
       }
-      return {'day': DateFormat.E(weekDay), 'amount': totalSpent};
+      return {'day': DateFormat.E().format(weekDay), 'amount': totalSpent};
     });
   }
 
   @override
   Widget build(BuildContext context) {
+    print(groupedTransactions);
     return Card(
       elevation: 20,
       margin: const EdgeInsets.all(20),
