@@ -340,3 +340,11 @@ Have you ever wanted to execute Dart code in the background—even if your app w
 The mechanism for this feature involves setting up an isolate. Isolates are Dart’s model for multithreading, though an isolate differs from a conventional thread in that it doesn’t share memory with the main program. You’ll set up your isolate for background execution using callbacks and a callback dispatcher.
 
 Flutter allows you to bring in thrid-party packages to display charts as per your will and requirements
+
+* Flexible:
+this is a widget used to wrap around widgets for appropriate spacing. It takes the argument flexFit which takes in 2 enum values Loose and Tight
+You can use another argument or property called "Flex:" - This basically is used to relatively position the items.
+For instance, if an item is flex:2 and another is flex:1, then both are summed i.e 3, then now the SDK sees that okay so one item needs 2 of 3 spaces available. And positiions it or provides the space accordingly.
+Play aorund with settings and properties to learn more like how they behave when one item is loose and the other is tight (Hint: Flex plays a vital role, it decides which item gets how much space)
+* Expanded:
+Expanded on the other hand is just Flexible with FlexFit tight by default hence it only has flex property, not FlexFit because it will automatically by default take the tight value or forced to fill the space available
