@@ -348,3 +348,11 @@ For instance, if an item is flex:2 and another is flex:1, then both are summed i
 Play aorund with settings and properties to learn more like how they behave when one item is loose and the other is tight (Hint: Flex plays a vital role, it decides which item gets how much space)
 * Expanded:
 Expanded on the other hand is just Flexible with FlexFit tight by default hence it only has flex property, not FlexFit because it will automatically by default take the tight value or forced to fill the space available
+
+* Listtile Widget: (Often used in conjuction with lists but not necessarily or everytime)
+A in-built widget provided by flutter which is preconfigured, styled with a certain layout that fits particularly well, you can set up some of the widgets here like:
+- Leading widget which means a widget that is positioned at the beginning of the list
+- CircularAvatar as the name suggests is a Rounded widget that is often used to hold content such as images
+- Title, this is a element that is in the middle 
+- Subtitle, this is a element that is basically below the title
+- trailing element is a element at the end of the listTile (Have some icons or buttons liek trash icon and more)
