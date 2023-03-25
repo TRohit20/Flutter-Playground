@@ -55,9 +55,9 @@ class _MyHomePageState extends State<MyHomePage> {
     // return recentTransactions;
   }
 
-  void _addingNewTransaction(String title, double amount) {
+  void _addingNewTransaction(String title, double amount, DateTime chosenDate) {
     final newTransaction =
-        Transactions(amount: amount, date: DateTime.now(), title: title);
+        Transactions(amount: amount, date: chosenDate, title: title);
 
     setState(() {
       _userTransactions.add(newTransaction);

@@ -22,15 +22,15 @@ class _NewTransactionState extends State<NewTransaction> {
     final enteredAmount = double.parse(_transactionAmount.text);
 
     // Covering edge case or Check
-    if (enteredTitle.isEmpty || enteredAmount <= 0) {
+    if (enteredTitle.isEmpty || enteredAmount <= 0 || _pickedDate == null) {
       return;
     }
 
     // Flutter internally provides this widget property
     // This is only available in the State class and gives you access to the connected widget
     // In order to access func or data from widget class from inside of this state class
-    widget.newTransaction(
-        _transactionTitle.text, double.parse(_transactionAmount.text));
+    widget.newTransaction(_transactionTitle.text,
+        double.parse(_transactionAmount.text), _pickedDate);
 
     // Calling the pop function from Navigator class using .of(context) method
     // This is used to close the top most widget or layer on screen (in this case the bottom sheet after submitting data)
