@@ -4,10 +4,11 @@ import 'package:intl/intl.dart';
 
 class TransactionList extends StatelessWidget {
   final List<Transactions> transactions;
+  final Function deleteTx;
 
   // Using constructor to pass data from parent to child
   // Using this to pass the transactions data
-  TransactionList(this.transactions);
+  TransactionList(this.transactions, this.deleteTx);
 
   @override
   Widget build(BuildContext context) {
@@ -60,6 +61,11 @@ class TransactionList extends StatelessWidget {
                     ),
                     subtitle: Text(
                         DateFormat.yMMMd().format(transactions[index].date)),
+                    trailing: IconButton(
+                      onPressed: () => deleteTx(transactions[index].id),
+                      icon: Icon(Icons.delete),
+                      color: Colors.red,
+                    ),
                   ),
                 );
               },

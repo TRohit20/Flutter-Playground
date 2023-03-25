@@ -30,8 +30,16 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   final List<Transactions> _userTransactions = [
-    Transactions(amount: 300, date: DateTime.now(), title: 'New Shoes'),
-    Transactions(amount: 700, date: DateTime.now(), title: 'New Watch')
+    Transactions(
+        amount: 300,
+        date: DateTime.now(),
+        title: 'New Shoes',
+        id: DateTime.now().toString()),
+    Transactions(
+        amount: 700,
+        date: DateTime.now(),
+        title: 'New Watch',
+        id: DateTime.now().toString())
   ];
 
   // Dynamically getting the recent transactions
@@ -56,11 +64,20 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   void _addingNewTransaction(String title, double amount, DateTime chosenDate) {
-    final newTransaction =
-        Transactions(amount: amount, date: chosenDate, title: title);
+    final newTransaction = Transactions(
+        amount: amount,
+        date: chosenDate,
+        title: title,
+        id: DateTime.now().toString());
 
     setState(() {
       _userTransactions.add(newTransaction);
+    });
+  }
+
+  void _deleteTransaction(String id) {
+    setState(() {
+      _userTransactions.removeWhere((transaction) => transaction.id == id);
     });
   }
 
@@ -99,7 +116,7 @@ class _MyHomePageState extends State<MyHomePage> {
           children: <Widget>[
             Chart(_recentTransactions),
             // ignore: prefer_const_literals_to_create_immutables
-            TransactionList(_userTransactions),
+            TransactionList(_userTransactions, _deleteTransaction),
           ],
         ),
       ),
