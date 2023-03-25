@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
 class NewTransaction extends StatefulWidget {
   final Function newTransaction;
@@ -11,13 +12,14 @@ class NewTransaction extends StatefulWidget {
 
 class _NewTransactionState extends State<NewTransaction> {
   // Saving the input per every key stroke
-  final transactionTitle = TextEditingController();
+  final _transactionTitle = TextEditingController();
 
-  final transactionAmount = TextEditingController();
+  final _transactionAmount = TextEditingController();
+  DateTime _pickedDate = DateTime(2023);
 
-  void submitData() {
-    final enteredTitle = transactionTitle.text;
-    final enteredAmount = double.parse(transactionAmount.text);
+  void _submitData() {
+    final enteredTitle = _transactionTitle.text;
+    final enteredAmount = double.parse(_transactionAmount.text);
 
     // Covering edge case or Check
     if (enteredTitle.isEmpty || enteredAmount <= 0) {
@@ -28,11 +30,28 @@ class _NewTransactionState extends State<NewTransaction> {
     // This is only available in the State class and gives you access to the connected widget
     // In order to access func or data from widget class from inside of this state class
     widget.newTransaction(
-        transactionTitle.text, double.parse(transactionAmount.text));
+        _transactionTitle.text, double.parse(_transactionAmount.text));
 
     // Calling the pop function from Navigator class using .of(context) method
     // This is used to close the top most widget or layer on screen (in this case the bottom sheet after submitting data)
     Navigator.of(context).pop();
+  }
+
+  void _selectDate() {
+    showDatePicker(
+            context: context,
+            initialDate: DateTime.now(),
+            firstDate: DateTime(2023),
+            lastDate: DateTime.now())
+        .then((selectedDate) {
+      if (selectedDate == null) {
+        return;
+      }
+
+      setState(() {
+        _pickedDate = selectedDate;
+      });
+    });
   }
 
   @override
@@ -47,22 +66,36 @@ class _NewTransactionState extends State<NewTransaction> {
           children: <Widget>[
             TextField(
               decoration: const InputDecoration(labelText: 'Name of expense'),
-              controller: transactionTitle,
-              onSubmitted: (_) => submitData(),
+              controller: _transactionTitle,
+              onSubmitted: (_) => _submitData(),
               // onChanged: (value) => transactionTitle = value,),
             ),
             TextField(
               decoration: const InputDecoration(labelText: 'Amount'),
-              controller: transactionAmount,
+              controller: _transactionAmount,
+            ),
+            Row(
+              children: [
+                Expanded(
+                  child: Text(_pickedDate == null
+                      ? 'No date chosen'
+                      : 'Picked Date: ${DateFormat.yMd().format(_pickedDate)}'),
+                ),
+                ElevatedButton(
+                    onPressed: _selectDate,
+                    child: Text(
+                      'Choose a Date',
+                      style: TextStyle(fontWeight: FontWeight.bold),
+                    ))
+              ],
             ),
             ElevatedButton(
-              onPressed: submitData,
-              style: const ButtonStyle(
-                  backgroundColor: MaterialStatePropertyAll(Colors.green)),
-              child: const Text(
-                'Add transaction',
-              ),
-            )
+                onPressed: _submitData,
+                style: const ButtonStyle(
+                    backgroundColor: MaterialStatePropertyAll(Colors.green)),
+                child: const Text(
+                  'Add transaction',
+                ))
           ],
         ),
       ),
