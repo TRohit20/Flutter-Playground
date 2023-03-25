@@ -28,7 +28,8 @@ class Chart extends StatelessWidget {
         'day': DateFormat.E().format(weekDay).substring(0, 1),
         'amount': totalSpent
       };
-    });
+      // reversed.tolist allows us to generate the list in reverse so the days will be in order now
+    }).reversed.toList();
   }
 
   double get totalAmountSpentInTheWeek {
