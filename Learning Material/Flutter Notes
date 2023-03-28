@@ -356,3 +356,22 @@ A in-built widget provided by flutter which is preconfigured, styled with a cert
 - Title, this is a element that is in the middle 
 - Subtitle, this is a element that is basically below the title
 - trailing element is a element at the end of the listTile (Have some icons or buttons liek trash icon and more)
+
+* Responsive UI:
+What does responsive mean?
+Responsive app or layout in UI is all about handling different sizes like portrait, landscape or maybe on different devices like tablets, laptops and more.
+So, we use different tools to build such UI
+* Adaptive: (Not an official term)
+It means adapting your UI to different Operating systems that the app runs on like IOS, Android etc
+- Flutter provides you with tools so you can adjust your app UI or behaviour as per your OS
+For example, For android, Material-design look which is used by flutter by default is for android, so you can say flutter by default actually targets Android UI, Android animations or android specific fonts. On the other hand, Cupertino-Design and styling for IOS, Animations/Route transitions
+
+But all of this, still on single codebase and project!! So, Only one Root Widget Tree.
+BUT HOW?? 
+- We do that by detecting which OS, Device or platform we are running on and then create a subtree (Render a subtree) with certain individual widgets based on the platform, device etc 
+- So if comes down to a either OR decision.
+
+* Calculating sizes dynamically, How?
+- Similar to web development, Flutter also provides us with a class called "MediaQuery"
+  Mediaquery provides us with various funcs and properties, it can allow us to find the device size or pixel ratio and much more. 
+  

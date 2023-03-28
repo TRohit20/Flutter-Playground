@@ -94,29 +94,48 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text(
-          'Expense Tracker App',
-          style: TextStyle(fontWeight: FontWeight.bold),
-        ),
-        backgroundColor: Theme.of(context).primaryColor,
-        // Used to add any widgets or icons to the appbar
-        actions: <Widget>[
-          IconButton(
-            icon: Icon(Icons.add),
-            onPressed: () => _startsToAddNewTransaction(context),
-          )
-        ],
+    final appBar = AppBar(
+      title: const Text(
+        'Expense Tracker App',
+        style: TextStyle(fontWeight: FontWeight.bold),
       ),
+      backgroundColor: Theme.of(context).primaryColor,
+      // Used to add any widgets or icons to the appbar
+      actions: <Widget>[
+        IconButton(
+          icon: Icon(Icons.add),
+          onPressed: () => _startsToAddNewTransaction(context),
+        )
+      ],
+    );
+    return Scaffold(
+      appBar: appBar,
       body: SingleChildScrollView(
         child: Column(
           // mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
-            Chart(_recentTransactions),
-            // ignore: prefer_const_literals_to_create_immutables
-            TransactionList(_userTransactions, _deleteTransaction),
+            Container(
+                height: (MediaQuery.of(
+                                context) // Since, it has metadata, it gives us the device details too
+                            .size
+                            .height // MediaQuery is the class provided by flutter used to get the height dynamically as per device
+                        -
+                        appBar.preferredSize
+                            .height // preferredSize is a func that is pretty self-explainatory
+                        -
+                        MediaQuery.of(context)
+                            .padding
+                            .top) // padding.top is used specifically for the notch or status bar as that is also part of the screen
+                    *
+                    0.3,
+                child: Chart(_recentTransactions)),
+            Container(
+                height: (MediaQuery.of(context).size.height -
+                        appBar.preferredSize.height -
+                        MediaQuery.of(context).padding.top) *
+                    0.7,
+                child: TransactionList(_userTransactions, _deleteTransaction)),
           ],
         ),
       ),
