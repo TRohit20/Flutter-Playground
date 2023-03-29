@@ -385,3 +385,10 @@ This text ALWAYS has a size of 20 device pixels, no matter what the user changed
 
 Text('This changes!', style: TextStyle(fontSize: 20 * curScaleFactor));
 This text on the other hand also has a size of 20 if the user didn't change anything in the settings (because textScaleFactor by default is 1). But if changes were made, the font size of this text respects the user settings.
+
+Flutter uses something called "Builder functions" often. 
+
+* Constraints:
+Constraints are a feature provided by Flutter. It is a feature offered by flutter which defines how much space certain widget may take. They set how a widget is rendered on screen like assigning a height or width etc. 
+ Like a object that provides you with the information about the constraints which are applied to a certain widget.
+- Constraints are always referred to as height and width and are expressed as min and max which you can set on your own or use the default ones.
