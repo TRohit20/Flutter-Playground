@@ -394,3 +394,9 @@ Constraints are a feature provided by Flutter. It is a feature offered by flutte
 - Constraints are always referred to as height and width and are expressed as min and max which you can set on your own or use the default ones.
 
 * Do not use {} after 'if' statement when using it inside a list. It is a special if case
+
+* Respecting SoftKeyboard Insets: (Provided by Flutter)
+- As we have seen in the device, when trying to give input using the soft keyboard, we either have a overflow in landscape mode or we are constantly having to save or close keyboard to see the other input fields. 
+- Flutter gives us softkeyboard insets to calculate how much space the keyboard will take and adjust the sheet or widget accordingly i.e VIEWINSETS property in MediaQuery
+- What does viewinsets do?
+  Gives us information about anything that is lapping into out view typically softkeyboard

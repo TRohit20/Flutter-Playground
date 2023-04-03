@@ -58,45 +58,51 @@ class _NewTransactionState extends State<NewTransaction> {
   Widget build(BuildContext context) {
     return Card(
       elevation: 10,
-      child: Container(
-        padding: const EdgeInsets.all(10),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          // ignore: prefer_const_literals_to_create_immutables
-          children: <Widget>[
-            TextField(
-              decoration: const InputDecoration(labelText: 'Name of expense'),
-              controller: _transactionTitle,
-              onSubmitted: (_) => _submitData(),
-              // onChanged: (value) => transactionTitle = value,),
-            ),
-            TextField(
-              decoration: const InputDecoration(labelText: 'Amount'),
-              controller: _transactionAmount,
-            ),
-            Row(
-              children: [
-                Expanded(
-                  child: Text(_pickedDate == null
-                      ? 'No date chosen'
-                      : 'Picked Date: ${DateFormat.yMd().format(_pickedDate)}'),
-                ),
-                ElevatedButton(
-                    onPressed: _selectDate,
-                    child: Text(
-                      'Choose a Date',
-                      style: TextStyle(fontWeight: FontWeight.bold),
-                    ))
-              ],
-            ),
-            ElevatedButton(
-                onPressed: _submitData,
-                style: const ButtonStyle(
-                    backgroundColor: MaterialStatePropertyAll(Colors.green)),
-                child: const Text(
-                  'Add transaction',
-                ))
-          ],
+      child: SingleChildScrollView(
+        child: Container(
+          padding: EdgeInsets.only(
+              top: 10,
+              left: 10,
+              right: 10,
+              bottom: MediaQuery.of(context).viewInsets.bottom + 10),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            // ignore: prefer_const_literals_to_create_immutables
+            children: <Widget>[
+              TextField(
+                decoration: const InputDecoration(labelText: 'Name of expense'),
+                controller: _transactionTitle,
+                onSubmitted: (_) => _submitData(),
+                // onChanged: (value) => transactionTitle = value,),
+              ),
+              TextField(
+                decoration: const InputDecoration(labelText: 'Amount'),
+                controller: _transactionAmount,
+              ),
+              Row(
+                children: [
+                  Expanded(
+                    child: Text(_pickedDate == null
+                        ? 'No date chosen'
+                        : 'Picked Date: ${DateFormat.yMd().format(_pickedDate)}'),
+                  ),
+                  ElevatedButton(
+                      onPressed: _selectDate,
+                      child: Text(
+                        'Choose a Date',
+                        style: TextStyle(fontWeight: FontWeight.bold),
+                      ))
+                ],
+              ),
+              ElevatedButton(
+                  onPressed: _submitData,
+                  style: const ButtonStyle(
+                      backgroundColor: MaterialStatePropertyAll(Colors.green)),
+                  child: const Text(
+                    'Add transaction',
+                  ))
+            ],
+          ),
         ),
       ),
     );

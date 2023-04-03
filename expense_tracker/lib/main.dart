@@ -93,6 +93,7 @@ class _MyHomePageState extends State<MyHomePage> {
   void _startsToAddNewTransaction(BuildContext ctx) {
     // UKW Context does, Builder is a function that'll return the widget that should be inside
     showModalBottomSheet(
+        isScrollControlled: true, // To move the keyboard up with keyboard
         context: ctx,
         builder: (bctx) {
           // We are ignoring context of this builder for now
