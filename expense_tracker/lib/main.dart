@@ -6,9 +6,9 @@ import 'package:flutter/material.dart';
 import './models/transactions.dart';
 
 void main() {
-  // Controlling the orientation like this can be viable based on your application.
-  WidgetsFlutterBinding.ensureInitialized();
-  SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
+  // // Controlling the orientation like this can be viable based on your application.
+  // WidgetsFlutterBinding.ensureInitialized();
+  // SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
   runApp(MyApp());
 }
 
@@ -47,6 +47,8 @@ class _MyHomePageState extends State<MyHomePage> {
         title: 'New Watch',
         id: DateTime.now().toString())
   ];
+
+  bool _showChart = false;
 
   // Dynamically getting the recent transactions
   List<Transactions> get _recentTransactions {
@@ -121,27 +123,45 @@ class _MyHomePageState extends State<MyHomePage> {
           // mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
-            Container(
-                height: (MediaQuery.of(
-                                context) // Since, it has metadata, it gives us the device details too
-                            .size
-                            .height // MediaQuery is the class provided by flutter used to get the height dynamically as per device
-                        -
-                        appBar.preferredSize
-                            .height // preferredSize is a func that is pretty self-explainatory
-                        -
-                        MediaQuery.of(context)
-                            .padding
-                            .top) // padding.top is used specifically for the notch or status bar as that is also part of the screen
-                    *
-                    0.3,
-                child: Chart(_recentTransactions)),
-            Container(
-                height: (MediaQuery.of(context).size.height -
-                        appBar.preferredSize.height -
-                        MediaQuery.of(context).padding.top) *
-                    0.7,
-                child: TransactionList(_userTransactions, _deleteTransaction)),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  "Show Chart",
+                  style: TextStyle(fontWeight: FontWeight.bold),
+                ),
+                Switch(
+                    value: _showChart,
+                    onChanged: (val) {
+                      setState(() {
+                        _showChart = val;
+                      });
+                    })
+              ],
+            ),
+            _showChart
+                ? Container(
+                    height: (MediaQuery.of(
+                                    context) // Since, it has metadata, it gives us the device details too
+                                .size
+                                .height // MediaQuery is the class provided by flutter used to get the height dynamically as per device
+                            -
+                            appBar.preferredSize
+                                .height // preferredSize is a func that is pretty self-explainatory
+                            -
+                            MediaQuery.of(context)
+                                .padding
+                                .top) // padding.top is used specifically for the notch or status bar as that is also part of the screen
+                        *
+                        0.3,
+                    child: Chart(_recentTransactions))
+                : Container(
+                    height: (MediaQuery.of(context).size.height -
+                            appBar.preferredSize.height -
+                            MediaQuery.of(context).padding.top) *
+                        0.7,
+                    child:
+                        TransactionList(_userTransactions, _deleteTransaction)),
           ],
         ),
       ),
