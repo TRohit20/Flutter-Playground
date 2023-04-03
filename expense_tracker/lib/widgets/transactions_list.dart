@@ -15,25 +15,29 @@ class TransactionList extends StatelessWidget {
     return Container(
       height: 500,
       child: transactions.isEmpty
-          ? Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(
-                  'No transactions found',
-                  style: Theme.of(context).textTheme.bodyLarge,
-                ),
-                // Just a empty box for space
-                SizedBox(
-                  height: 15,
-                ),
-                SizedBox(
-                  height: 200,
-                  child: Image.asset(
-                    'assets/images/hello.png',
-                    fit: BoxFit.cover,
-                  ),
-                )
-              ],
+          ? LayoutBuilder(
+              builder: (ctx, constraints) {
+                return Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      'No transactions found',
+                      style: Theme.of(context).textTheme.bodyLarge,
+                    ),
+                    // Just a empty box for space
+                    SizedBox(
+                      height: 15,
+                    ),
+                    SizedBox(
+                      height: constraints.maxHeight * 0.6,
+                      child: Image.asset(
+                        'assets/images/hello.png',
+                        fit: BoxFit.cover,
+                      ),
+                    )
+                  ],
+                );
+              },
             )
           : ListView.builder(
               itemBuilder: (context, index) {

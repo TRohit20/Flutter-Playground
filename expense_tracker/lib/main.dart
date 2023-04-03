@@ -153,7 +153,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                 .padding
                                 .top) // padding.top is used specifically for the notch or status bar as that is also part of the screen
                         *
-                        0.3,
+                        0.65,
                     child: Chart(_recentTransactions))
                 : Container(
                     height: (MediaQuery.of(context).size.height -
