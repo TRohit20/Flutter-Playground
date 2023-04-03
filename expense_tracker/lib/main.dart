@@ -102,6 +102,9 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
+    final isLandScape =
+        MediaQuery.of(context).orientation == Orientation.landscape;
+
     final appBar = AppBar(
       title: const Text(
         'Expense Tracker App',
@@ -116,6 +119,14 @@ class _MyHomePageState extends State<MyHomePage> {
         )
       ],
     );
+
+    final txWidgetlist = Container(
+        height: (MediaQuery.of(context).size.height -
+                appBar.preferredSize.height -
+                MediaQuery.of(context).padding.top) *
+            0.7,
+        child: TransactionList(_userTransactions, _deleteTransaction));
+
     return Scaffold(
       appBar: appBar,
       body: SingleChildScrollView(
@@ -123,45 +134,58 @@ class _MyHomePageState extends State<MyHomePage> {
           // mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(
-                  "Show Chart",
-                  style: TextStyle(fontWeight: FontWeight.bold),
-                ),
-                Switch(
-                    value: _showChart,
-                    onChanged: (val) {
-                      setState(() {
-                        _showChart = val;
-                      });
-                    })
-              ],
-            ),
-            _showChart
-                ? Container(
-                    height: (MediaQuery.of(
-                                    context) // Since, it has metadata, it gives us the device details too
-                                .size
-                                .height // MediaQuery is the class provided by flutter used to get the height dynamically as per device
-                            -
-                            appBar.preferredSize
-                                .height // preferredSize is a func that is pretty self-explainatory
-                            -
-                            MediaQuery.of(context)
-                                .padding
-                                .top) // padding.top is used specifically for the notch or status bar as that is also part of the screen
-                        *
-                        0.65,
-                    child: Chart(_recentTransactions))
-                : Container(
-                    height: (MediaQuery.of(context).size.height -
-                            appBar.preferredSize.height -
-                            MediaQuery.of(context).padding.top) *
-                        0.7,
-                    child:
-                        TransactionList(_userTransactions, _deleteTransaction)),
+            if (isLandScape)
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  const Text(
+                    "Show Chart",
+                    style: TextStyle(fontWeight: FontWeight.bold),
+                  ),
+                  Switch(
+                      value: _showChart,
+                      onChanged: (val) {
+                        setState(() {
+                          _showChart = val;
+                        });
+                      })
+                ],
+              ),
+            if (!isLandScape)
+              Container(
+                  height: (MediaQuery.of(
+                                  context) // Since, it has metadata, it gives us the device details too
+                              .size
+                              .height // MediaQuery is the class provided by flutter used to get the height dynamically as per device
+                          -
+                          appBar.preferredSize
+                              .height // preferredSize is a func that is pretty self-explainatory
+                          -
+                          MediaQuery.of(context)
+                              .padding
+                              .top) // padding.top is used specifically for the notch or status bar as that is also part of the screen
+                      *
+                      0.25,
+                  child: Chart(_recentTransactions)),
+            if (!isLandScape) txWidgetlist,
+            if (isLandScape)
+              _showChart
+                  ? Container(
+                      height: (MediaQuery.of(
+                                      context) // Since, it has metadata, it gives us the device details too
+                                  .size
+                                  .height // MediaQuery is the class provided by flutter used to get the height dynamically as per device
+                              -
+                              appBar.preferredSize
+                                  .height // preferredSize is a func that is pretty self-explainatory
+                              -
+                              MediaQuery.of(context)
+                                  .padding
+                                  .top) // padding.top is used specifically for the notch or status bar as that is also part of the screen
+                          *
+                          0.65,
+                      child: Chart(_recentTransactions))
+                  : txWidgetlist,
           ],
         ),
       ),

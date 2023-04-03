@@ -392,3 +392,5 @@ Flutter uses something called "Builder functions" often.
 Constraints are a feature provided by Flutter. It is a feature offered by flutter which defines how much space certain widget may take. They set how a widget is rendered on screen like assigning a height or width etc. 
  Like a object that provides you with the information about the constraints which are applied to a certain widget.
 - Constraints are always referred to as height and width and are expressed as min and max which you can set on your own or use the default ones.
+
+* Do not use {} after 'if' statement when using it inside a list. It is a special if case
