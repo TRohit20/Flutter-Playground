@@ -1,10 +1,16 @@
 import 'package:expense_tracker/widgets/chart.dart';
 import 'package:expense_tracker/widgets/new_transaction.dart';
+import 'package:flutter/services.dart';
 import './widgets/transactions_list.dart';
 import 'package:flutter/material.dart';
 import './models/transactions.dart';
 
-void main() => runApp(MyApp());
+void main() {
+  // Controlling the orientation like this can be viable based on your application.
+  WidgetsFlutterBinding.ensureInitialized();
+  SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
+  runApp(MyApp());
+}
 
 class MyApp extends StatelessWidget {
   // const MyApp({super.key});
