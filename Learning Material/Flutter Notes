@@ -402,4 +402,6 @@ Constraints are a feature provided by Flutter. It is a feature offered by flutte
   Gives us information about anything that is lapping into out view typically softkeyboard
 
 * Whenever you are using the MediaQuery a lot like multiple times in the same widget tree --> It is recommnended to store the MediaQuery object in a variable and use the variable wherever required
-- This is because this way, you won't be recreating the object everytime you need,  but instead your gonna reference to one object which is usually at the beginning of the build method. Calculating or getting the object once and then using it across 
+- This is because this way, you won't be recreating the object everytime you need,  but instead your gonna reference to one object which is usually at the beginning of the build method. Calculating or getting the object once and then using it across
+
+- IOS has some space on screen already reserved for notch and app drawer task manager so we need to respect which is why we use a widget called SafeArea on the body which respects the space reserved and adjusts accordingly 
