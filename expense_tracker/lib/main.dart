@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:expense_tracker/widgets/chart.dart';
 import 'package:expense_tracker/widgets/new_transaction.dart';
+import 'package:flutter/cupertino.dart';
 // import 'package:flutter/services.dart';
 import './widgets/transactions_list.dart';
 import 'package:flutter/material.dart';
@@ -108,20 +109,33 @@ class _MyHomePageState extends State<MyHomePage> {
     final mediaQuery = MediaQuery.of(context);
     final isLandScape = mediaQuery.orientation == Orientation.landscape;
 
-    final appBar = AppBar(
-      title: const Text(
-        'Expense Tracker App',
-        style: TextStyle(fontWeight: FontWeight.bold),
-      ),
-      backgroundColor: Theme.of(context).primaryColor,
-      // Used to add any widgets or icons to the appbar
-      actions: <Widget>[
-        IconButton(
-          icon: Icon(Icons.add),
-          onPressed: () => _startsToAddNewTransaction(context),
-        )
-      ],
-    );
+    final PreferredSizeWidget appBar = (Platform.isIOS
+        ? CupertinoNavigationBar(
+            middle: Text(
+              'Expense Tracker App',
+              style: TextStyle(fontWeight: FontWeight.bold),
+            ),
+            trailing: Row(mainAxisSize: MainAxisSize.min, children: [
+              GestureDetector(
+                child: const Icon(CupertinoIcons.add),
+                onTap: () => _startsToAddNewTransaction(context),
+              )
+            ]),
+          )
+        : AppBar(
+            title: const Text(
+              'Expense Tracker App',
+              style: TextStyle(fontWeight: FontWeight.bold),
+            ),
+            backgroundColor: Theme.of(context).primaryColor,
+            // Used to add any widgets or icons to the appbar
+            actions: <Widget>[
+              IconButton(
+                icon: Icon(Icons.add),
+                onPressed: () => _startsToAddNewTransaction(context),
+              )
+            ],
+          )) as PreferredSizeWidget;
 
     final txWidgetlist = Container(
         height: (mediaQuery.size.height -
@@ -130,74 +144,81 @@ class _MyHomePageState extends State<MyHomePage> {
             0.7,
         child: TransactionList(_userTransactions, _deleteTransaction));
 
-    return Scaffold(
-      appBar: appBar,
-      body: SingleChildScrollView(
-        child: Column(
-          // mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: <Widget>[
-            if (isLandScape)
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  const Text(
-                    "Show Chart",
-                    style: TextStyle(fontWeight: FontWeight.bold),
-                  ),
-                  Switch.adaptive(
-                      value: _showChart,
-                      onChanged: (val) {
-                        setState(() {
-                          _showChart = val;
-                        });
-                      })
-                ],
-              ),
-            if (!isLandScape)
-              Container(
-                  height:
-                      (mediaQuery // Since, it has metadata, it gives us the device details too
-                                  .size
-                                  .height // MediaQuery is the class provided by flutter used to get the height dynamically as per device
-                              -
-                              appBar.preferredSize
-                                  .height // preferredSize is a func that is pretty self-explainatory
-                              -
-                              mediaQuery.padding
-                                  .top) // padding.top is used specifically for the notch or status bar as that is also part of the screen
-                          *
-                          0.25,
-                  child: Chart(_recentTransactions)),
-            if (!isLandScape) txWidgetlist,
-            if (isLandScape)
-              _showChart
-                  ? Container(
-                      height:
-                          (mediaQuery // Since, it has metadata, it gives us the device details too
-                                      .size
-                                      .height // MediaQuery is the class provided by flutter used to get the height dynamically as per device
-                                  -
-                                  appBar.preferredSize
-                                      .height // preferredSize is a func that is pretty self-explainatory
-                                  -
-                                  mediaQuery.padding
-                                      .top) // padding.top is used specifically for the notch or status bar as that is also part of the screen
-                              *
-                              0.65,
-                      child: Chart(_recentTransactions))
-                  : txWidgetlist,
-          ],
-        ),
-      ),
-      floatingActionButton: Platform.isIOS
-          ? Container()
-          : FloatingActionButton(
-              onPressed: () => _startsToAddNewTransaction(context),
-              backgroundColor: Theme.of(context).primaryColor,
-              child: const Icon(Icons.add),
+    final pageBody = SingleChildScrollView(
+      child: Column(
+        // mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: <Widget>[
+          if (isLandScape)
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                const Text(
+                  "Show Chart",
+                  style: TextStyle(fontWeight: FontWeight.bold),
+                ),
+                Switch.adaptive(
+                    value: _showChart,
+                    onChanged: (val) {
+                      setState(() {
+                        _showChart = val;
+                      });
+                    })
+              ],
             ),
-      // floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+          if (!isLandScape)
+            Container(
+                height:
+                    (mediaQuery // Since, it has metadata, it gives us the device details too
+                                .size
+                                .height // MediaQuery is the class provided by flutter used to get the height dynamically as per device
+                            -
+                            appBar.preferredSize
+                                .height // preferredSize is a func that is pretty self-explainatory
+                            -
+                            mediaQuery.padding
+                                .top) // padding.top is used specifically for the notch or status bar as that is also part of the screen
+                        *
+                        0.25,
+                child: Chart(_recentTransactions)),
+          if (!isLandScape) txWidgetlist,
+          if (isLandScape)
+            _showChart
+                ? Container(
+                    height:
+                        (mediaQuery // Since, it has metadata, it gives us the device details too
+                                    .size
+                                    .height // MediaQuery is the class provided by flutter used to get the height dynamically as per device
+                                -
+                                appBar.preferredSize
+                                    .height // preferredSize is a func that is pretty self-explainatory
+                                -
+                                mediaQuery.padding
+                                    .top) // padding.top is used specifically for the notch or status bar as that is also part of the screen
+                            *
+                            0.65,
+                    child: Chart(_recentTransactions))
+                : txWidgetlist,
+        ],
+      ),
     );
+
+    return Platform.isIOS
+        ? CupertinoPageScaffold(
+            child: pageBody,
+            navigationBar: appBar as ObstructingPreferredSizeWidget,
+          )
+        : Scaffold(
+            appBar: appBar,
+            body: pageBody,
+            floatingActionButton: Platform.isIOS
+                ? Container()
+                : FloatingActionButton(
+                    onPressed: () => _startsToAddNewTransaction(context),
+                    backgroundColor: Theme.of(context).primaryColor,
+                    child: const Icon(Icons.add),
+                  ),
+            // floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+          );
   }
 }
