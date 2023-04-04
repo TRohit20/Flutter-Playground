@@ -1,6 +1,8 @@
+import 'dart:io';
+
 import 'package:expense_tracker/widgets/chart.dart';
 import 'package:expense_tracker/widgets/new_transaction.dart';
-import 'package:flutter/services.dart';
+// import 'package:flutter/services.dart';
 import './widgets/transactions_list.dart';
 import 'package:flutter/material.dart';
 import './models/transactions.dart';
@@ -143,7 +145,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     "Show Chart",
                     style: TextStyle(fontWeight: FontWeight.bold),
                   ),
-                  Switch(
+                  Switch.adaptive(
                       value: _showChart,
                       onChanged: (val) {
                         setState(() {
@@ -188,11 +190,13 @@ class _MyHomePageState extends State<MyHomePage> {
           ],
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () => _startsToAddNewTransaction(context),
-        backgroundColor: Theme.of(context).primaryColor,
-        child: const Icon(Icons.add),
-      ),
+      floatingActionButton: Platform.isIOS
+          ? Container()
+          : FloatingActionButton(
+              onPressed: () => _startsToAddNewTransaction(context),
+              backgroundColor: Theme.of(context).primaryColor,
+              child: const Icon(Icons.add),
+            ),
       // floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
     );
   }
