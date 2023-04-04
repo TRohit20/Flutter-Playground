@@ -20,13 +20,20 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Expense Tracker App',
-      theme: ThemeData(
-        primarySwatch: Colors.green,
-      ),
-      home: MyHomePage(),
-    );
+    return Platform.isIOS
+        ? CupertinoApp(
+            title: 'Expense Tracker App',
+            theme: CupertinoThemeData(
+              primaryColor: Colors.green,
+            ),
+            home: MyHomePage())
+        : MaterialApp(
+            title: 'Expense Tracker App',
+            theme: ThemeData(
+              primarySwatch: Colors.green,
+            ),
+            home: MyHomePage(),
+          );
   }
 }
 
