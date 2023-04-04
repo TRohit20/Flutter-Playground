@@ -103,8 +103,8 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
-    final isLandScape =
-        MediaQuery.of(context).orientation == Orientation.landscape;
+    final mediaQuery = MediaQuery.of(context);
+    final isLandScape = mediaQuery.orientation == Orientation.landscape;
 
     final appBar = AppBar(
       title: const Text(
@@ -122,9 +122,9 @@ class _MyHomePageState extends State<MyHomePage> {
     );
 
     final txWidgetlist = Container(
-        height: (MediaQuery.of(context).size.height -
+        height: (mediaQuery.size.height -
                 appBar.preferredSize.height -
-                MediaQuery.of(context).padding.top) *
+                mediaQuery.padding.top) *
             0.7,
         child: TransactionList(_userTransactions, _deleteTransaction));
 
@@ -154,37 +154,35 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
             if (!isLandScape)
               Container(
-                  height: (MediaQuery.of(
-                                  context) // Since, it has metadata, it gives us the device details too
-                              .size
-                              .height // MediaQuery is the class provided by flutter used to get the height dynamically as per device
-                          -
-                          appBar.preferredSize
-                              .height // preferredSize is a func that is pretty self-explainatory
-                          -
-                          MediaQuery.of(context)
-                              .padding
-                              .top) // padding.top is used specifically for the notch or status bar as that is also part of the screen
-                      *
-                      0.25,
-                  child: Chart(_recentTransactions)),
-            if (!isLandScape) txWidgetlist,
-            if (isLandScape)
-              _showChart
-                  ? Container(
-                      height: (MediaQuery.of(
-                                      context) // Since, it has metadata, it gives us the device details too
+                  height:
+                      (mediaQuery // Since, it has metadata, it gives us the device details too
                                   .size
                                   .height // MediaQuery is the class provided by flutter used to get the height dynamically as per device
                               -
                               appBar.preferredSize
                                   .height // preferredSize is a func that is pretty self-explainatory
                               -
-                              MediaQuery.of(context)
-                                  .padding
+                              mediaQuery.padding
                                   .top) // padding.top is used specifically for the notch or status bar as that is also part of the screen
                           *
-                          0.65,
+                          0.25,
+                  child: Chart(_recentTransactions)),
+            if (!isLandScape) txWidgetlist,
+            if (isLandScape)
+              _showChart
+                  ? Container(
+                      height:
+                          (mediaQuery // Since, it has metadata, it gives us the device details too
+                                      .size
+                                      .height // MediaQuery is the class provided by flutter used to get the height dynamically as per device
+                                  -
+                                  appBar.preferredSize
+                                      .height // preferredSize is a func that is pretty self-explainatory
+                                  -
+                                  mediaQuery.padding
+                                      .top) // padding.top is used specifically for the notch or status bar as that is also part of the screen
+                              *
+                              0.65,
                       child: Chart(_recentTransactions))
                   : txWidgetlist,
           ],
