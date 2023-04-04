@@ -30,8 +30,9 @@ class MyApp extends StatelessWidget {
         : MaterialApp(
             title: 'Expense Tracker App',
             theme: ThemeData(
-              primarySwatch: Colors.green,
-            ),
+                primarySwatch: Colors.green,
+                textTheme: ThemeData.light().textTheme.copyWith(
+                    titleMedium: TextStyle(fontWeight: FontWeight.bold))),
             home: MyHomePage(),
           );
   }
@@ -118,17 +119,14 @@ class _MyHomePageState extends State<MyHomePage> {
 
     final PreferredSizeWidget appBar = (Platform.isIOS
         ? CupertinoNavigationBar(
-            middle: Text(
-              'Expense Tracker App',
+            middle: const Text(
+              'Expense Tracker',
               style: TextStyle(fontWeight: FontWeight.bold),
             ),
-            trailing: Row(mainAxisSize: MainAxisSize.min, children: [
-              GestureDetector(
-                child: const Icon(CupertinoIcons.add),
-                onTap: () => _startsToAddNewTransaction(context),
-              )
-            ]),
-          )
+            trailing: CupertinoButton(
+              onPressed: () => _startsToAddNewTransaction(context),
+              child: Icon(CupertinoIcons.add),
+            ))
         : AppBar(
             title: const Text(
               'Expense Tracker App',
@@ -163,7 +161,10 @@ class _MyHomePageState extends State<MyHomePage> {
                 children: [
                   const Text(
                     "Show Chart",
-                    style: TextStyle(fontWeight: FontWeight.bold),
+                    style: TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.black),
                   ),
                   Switch.adaptive(
                       value: _showChart,
