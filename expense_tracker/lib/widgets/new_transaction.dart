@@ -1,3 +1,6 @@
+import 'dart:io';
+
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
@@ -69,16 +72,28 @@ class _NewTransactionState extends State<NewTransaction> {
             crossAxisAlignment: CrossAxisAlignment.center,
             // ignore: prefer_const_literals_to_create_immutables
             children: <Widget>[
-              TextField(
-                decoration: const InputDecoration(labelText: 'Name of expense'),
-                controller: _transactionTitle,
-                onSubmitted: (_) => _submitData(),
-                // onChanged: (value) => transactionTitle = value,),
-              ),
-              TextField(
-                decoration: const InputDecoration(labelText: 'Amount'),
-                controller: _transactionAmount,
-              ),
+              Platform.isIOS
+                  ? CupertinoTextField(
+                      placeholder: 'Name of the Expense',
+                      controller: _transactionTitle,
+                      onSubmitted: (_) => _submitData(),
+                    )
+                  : TextField(
+                      decoration:
+                          const InputDecoration(labelText: 'Name of expense'),
+                      controller: _transactionTitle,
+                      onSubmitted: (_) => _submitData(),
+                      // onChanged: (value) => transactionTitle = value,),
+                    ),
+              Platform.isIOS
+                  ? CupertinoTextField(
+                      placeholder: 'Amount',
+                      controller: _transactionAmount,
+                      onSubmitted: (_) => _submitData())
+                  : TextField(
+                      decoration: const InputDecoration(labelText: 'Amount'),
+                      controller: _transactionAmount,
+                    ),
               Row(
                 children: [
                   Expanded(
@@ -86,12 +101,19 @@ class _NewTransactionState extends State<NewTransaction> {
                         ? 'No date chosen'
                         : 'Picked Date: ${DateFormat.yMd().format(_pickedDate)}'),
                   ),
-                  ElevatedButton(
-                      onPressed: _selectDate,
-                      child: Text(
-                        'Choose a Date',
-                        style: TextStyle(fontWeight: FontWeight.bold),
-                      ))
+                  Platform.isIOS
+                      ? CupertinoButton(
+                          onPressed: _selectDate,
+                          child: Text(
+                            'Choose a Date',
+                            style: TextStyle(fontWeight: FontWeight.bold),
+                          ))
+                      : ElevatedButton(
+                          onPressed: _selectDate,
+                          child: Text(
+                            'Choose a Date',
+                            style: TextStyle(fontWeight: FontWeight.bold),
+                          ))
                 ],
               ),
               ElevatedButton(
