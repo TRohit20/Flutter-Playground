@@ -29,3 +29,15 @@ You can only control the Widget tree with your code but the other two trees are 
  1. setState()- Basically tells the screen while refreshing at 60 FPS to refresh and rebuild. So, everytime, a rebuild takes place, the widgets since being a class are reinstantiated and a new widget tree is again created.
  NO, this is not a mistake or a error, It is meant to be that way as Widgets are Immutable, you cannot change the property of a existing of an existing widget, instead you can override the widget with new one and enforce the changes. 
  This way the changes are more efficiently detected and object changes
+
+ * How does Flutter actually Rebuild, Repaint the screen?  (This is why Flutter is Efficient)
+ When rebuilt, the widget tree is newly created again then what about the element and render object are they recreated? Let's see:
+ - When setState is called and the widget is rebuild, rememeber that the state is maintained in a seperate state object and not directly connected to widget, so when setState is called, that edits this state Object too. 
+ When that happens, the widget is called dirty and new widget is built to replace it and the new state is now output there.
+ As you can see, State object remains the same, it is detached to the widget, State is not replaced, it is just modified over time.
+ - Now with the stateful widget being recreated, the widgets inside it are also recreated or replaced with new ones, does this mean their elements and render Objects are replaced too?
+ NOOO! The elements dont just hold the reference to a widget but also some info on how to identify their related widget such as position of the widget, which type or kind it was connected to! 
+ So, when widgets are replaced, the elements use this info to check the widgets and if they checkout, it simply updates the reference to the widget to the new one. It also passes and updates the info for RenderObject. Changes are now made as per new configs just as required
+ - This is why flutter is efficient, it has a element tree that does not rebuild or change whenever build is called. 
+ So, While widget tree is rebuild, only info of what needs to be changed is passed and it repaints accordingly.
+ Wanna learn more about the internal working of this in Flutter? Read this: https://docs.flutter.dev/resources/inside-flutter
