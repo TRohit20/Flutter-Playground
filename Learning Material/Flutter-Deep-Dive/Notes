@@ -41,3 +41,10 @@ You can only control the Widget tree with your code but the other two trees are 
  - This is why flutter is efficient, it has a element tree that does not rebuild or change whenever build is called. 
  So, While widget tree is rebuild, only info of what needs to be changed is passed and it repaints accordingly.
  Wanna learn more about the internal working of this in Flutter? Read this: https://docs.flutter.dev/resources/inside-flutter
+
+ * How the Build method is called?
+ You can simply add a print statement to each build method of the widget and run the app. then check the debug console to see in which order and which which widget build methods are called.
+ When you runApp, It starts to call the build method in a top down approach as in starts from the App or Homepage, calls the build in it, moves to the next widget it needs to create, calls its build then moves down to the next widget to create and calls its build and so on.
+ In our example, tapping the button to add new transaction does not rebuild anything but just pressing on the text field without any input also rebuuilds everything, How? 
+ As you know, Not just set state but MediaQuery also, it is a special kind of widget that also rebuilds the widget with any change such as orientation or viewInsets etc
+ - Wondering if it is inefficient? NO, it is not. One of Flutter's core mechanism is to rebuild the widget tree but what you can do to optimise your app especially in large app cases is to organise your app and have only one widget per file or so so you have build triggered for only specific widgets or so. Like the parts that do change often are confined or contained intheir own widgets so that they don't spill into other widgets
