@@ -48,3 +48,11 @@ You can only control the Widget tree with your code but the other two trees are 
  In our example, tapping the button to add new transaction does not rebuild anything but just pressing on the text field without any input also rebuuilds everything, How? 
  As you know, Not just set state but MediaQuery also, it is a special kind of widget that also rebuilds the widget with any change such as orientation or viewInsets etc
  - Wondering if it is inefficient? NO, it is not. One of Flutter's core mechanism is to rebuild the widget tree but what you can do to optimise your app especially in large app cases is to organise your app and have only one widget per file or so so you have build triggered for only specific widgets or so. Like the parts that do change often are confined or contained intheir own widgets so that they don't spill into other widgets
+
+ * Using "const" Widgets and Constructors
+ Although rebuilding is not inefficient, doing tiny bits we can to make it even better makes a huge dif in large apps, one small way to improve performance can be using 'const' constructors, As you know, const means it knows the config or so at the compile time and will not change! 
+
+ You can make a constructor const only when all the properties are final. Now, the widget is immutable, you cannot access the properties later and modify
+ - Stateless Widgets are usually const as their properties are all final and do not change anyways
+ - So when you use const prefix or mark a widget as const then we know the data in it is not dynamic and will remain the same, So when the widget tree is rebuild, It will not rebuild the const widgets cz it knows it'll be the same or no change takes place there
+ - So it's a good practise to add const to widgets that are not dynamic and we know will remain the same irrespective. Makes it efficient in large apps
