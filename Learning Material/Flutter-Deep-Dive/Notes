@@ -1,0 +1,31 @@
+### Flutter Deep Dive:
+
+The way flutter works is by-default, it aims to give you a 60 FPS app which means it updates the screen 60 times per sec meaning redrawing pixels 60 times per second. This is nothing wrong, it is usual.
+- But it would only become inefficient when flutter would have to re-calculate the entire layout 60 times per sec.
+Because when flutter draws something on the screen for the first time, it needs to calcualte the width, height, position of every element, color etc and every pixel, so for subsequent draws, for refreshes of the screen/UI, if nothing chnages, flutter takes old info which is already derived and paint that on screen which is super efficient and fast. 
+
+The problem would only be happening when flutter has to recalculate for every refresh.
+Is that what's happening with Build methods? When build is called? Rebuild element and all elements?
+Let's take a deeper look :--
+Flutter has three trees actually 
+- Widget tree, Element tree and Render tree. 
+
+You can only control the Widget tree with your code but the other two trees are controlled internally by flutter and based on your widget tree.
+
+* Widget tree:
+    The Widget tree you create with code which is built by flutter by calling the Build method is essentially just a bunch of configuration, more like a description of what needs to be on the screen, Constant changes, so Often rebuild.
+* Element Tree:
+    The element tree is automatically created by flutter and links the renderobject with your Widgets. This gets rarely rebuild. Links the widgets to actual rendered objects (Elements)
+* Render Tree:
+    The render tree is the representation of the rendered objects that is what really ends up visible on the screen. What you see on the screen, so rarely rebuild.
+
+- For every widget in your widget, flutter automatically creates a element for it when it first encounters it
+- An element can be defined as a object in the memory that has reference to its widget. It has no configuration. It also points at the RenderedBox, Rendered object you see on the screen
+- When flutter encounters a Stateful Widget, It not only creates a widget but also a createstate func that creates a state object. So now the element has the reference to both widget the state object in memory
+
+* Widgets are called widgets but do not forget that they are in the end classes and can be instantiated normally
+
+- The build method is called by Flutter whenever the state changes, Two important triggers for that change to happen:
+ 1. setState()- Basically tells the screen while refreshing at 60 FPS to refresh and rebuild. So, everytime, a rebuild takes place, the widgets since being a class are reinstantiated and a new widget tree is again created.
+ NO, this is not a mistake or a error, It is meant to be that way as Widgets are Immutable, you cannot change the property of a existing of an existing widget, instead you can override the widget with new one and enforce the changes. 
+ This way the changes are more efficiently detected and object changes
