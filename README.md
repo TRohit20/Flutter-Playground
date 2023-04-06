@@ -15,7 +15,7 @@ This is a repository that keeps track of all my learnings of flutter. It consist
 
 # Where to look for notes or References to understand the parts of code or Concepts? 
 - [Notes](https://github.com/TRohit20/Flutter-Playground/tree/main/Learning%20Material) - You can find all the notes, reference materials and resoucres that I personally curated or used to refer for learning. 
-- [Images](https://github.com/TRohit20/Flutter-Playground/tree/main/Images%20for%20better%20understanding)- This is a folder containing few images which make it easy to understand certain concepts :)
+- [Images](https://github.com/TRohit20/Flutter-Playground/tree/main/Learning%20Material)- This is a folder containing few images which make it easy to understand certain concepts :)
 
 # Wanna contribute?
 - Feel free to play around with the repo, work with it and more, if you wanna add value of some sort and contribute to the repository, please refer to [contributing.md](https://github.com/TRohit20/Flutter-Playground/blob/main/contributing.md) file to know how and get going. All the best!
