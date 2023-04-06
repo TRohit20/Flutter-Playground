@@ -56,3 +56,16 @@ You can only control the Widget tree with your code but the other two trees are 
  - Stateless Widgets are usually const as their properties are all final and do not change anyways
  - So when you use const prefix or mark a widget as const then we know the data in it is not dynamic and will remain the same, So when the widget tree is rebuild, It will not rebuild the const widgets cz it knows it'll be the same or no change takes place there
  - So it's a good practise to add const to widgets that are not dynamic and we know will remain the same irrespective. Makes it efficient in large apps
+
+ * Good code:
+ Two important pieces that make up good code-
+ 1. Readability/Understandable - Code that does not really impact the performance +vely or -vely but just easier to manage for you or any developer.
+    The more readable your app is, the more easy it gets for you to debug and work with the app. 
+    You need to be able to understand the code in the future down the line and while working in teams. 
+ 2. Following certain practises that impact the performance of the app, things like const. You might sometimes miss the possible improvements but thats okay cz it does not neccessarily make your app laggy or slow.
+    it is okay to have open mind to look for new best practises but donot delay app cycle or anything searching for squeezing maybe another ms of better performance
+
+* Extracting Widgets
+In our expense tracker example, the code is written pretty well, although you could do better by refractoring code such as 
+- Moving MediaQuery and the widgets that will get effected by it to another widget so the entire build is not triggered in Main.
+- Identify things like List card under transactionList which can be moved to a new widget used, Not performance sake but for sake of improving readability
