@@ -69,3 +69,8 @@ You can only control the Widget tree with your code but the other two trees are 
 In our expense tracker example, the code is written pretty well, although you could do better by refractoring code such as 
 - Moving MediaQuery and the widgets that will get effected by it to another widget so the entire build is not triggered in Main.
 - Identify things like List card under transactionList which can be moved to a new widget used, Not performance sake but for sake of improving readability
+
+* Builder Functions:
+- No, Not the builder functions you use in arguments or as functions, but a method you add to your own widget which is only called internally and which returns a Widget instead of void.
+- The idea behind these methods is simple. You wish to call these methods from inside the build func and simply outsource the build methods donw there to these builder functions here. To make it more readable and manageable
+- In our expense tracker example, We are using Builer method to build content for Landscape and portrait. We used Spread operators to return the list of widgets for it.
