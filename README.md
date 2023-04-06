@@ -10,6 +10,7 @@ This is a repository that keeps track of all my learnings of flutter. It consist
 - [Basic App](https://github.com/TRohit20/Flutter-Playground/tree/main/basic_app) - The application that has all the fundamentals and components to get started with Flutter, Your stepping stone
 - [Cupertino Design App](https://github.com/TRohit20/Flutter-Playground/tree/main/cupertino_design_app) - This app is built using the Cupertino Design style meaning for iOS, It is a playaround app to implement or develop specifically for IOS
 - [Expense Tracker](https://github.com/TRohit20/Flutter-Playground/tree/main/expense_tracker) - Application built to track your expenses, this application consists of mainly design and widgets knowledge, styling and more
+- [Flutter Deep Dive and Internal Working](https://github.com/TRohit20/Flutter-Playground/tree/main/Learning%20Material/Flutter-Deep-Dive)- This is a module of learning where I go deep into Flutter and it's internal working. 
 - More coming soon as i continue to learn and implement
 
 # Where to look for notes or References to understand the parts of code or Concepts? 
