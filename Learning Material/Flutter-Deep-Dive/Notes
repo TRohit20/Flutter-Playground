@@ -74,3 +74,30 @@ In our expense tracker example, the code is written pretty well, although you co
 - No, Not the builder functions you use in arguments or as functions, but a method you add to your own widget which is only called internally and which returns a Widget instead of void.
 - The idea behind these methods is simple. You wish to call these methods from inside the build func and simply outsource the build methods donw there to these builder functions here. To make it more readable and manageable
 - In our expense tracker example, We are using Builer method to build content for Landscape and portrait. We used Spread operators to return the list of widgets for it.
+
+* Understanding the Widget LifeCycle:
+We have different lifecycles for the different types of widgets we have (Stateless and stateful)
+- Stateless: The lifecycle as you know is straight forward, it has a constructor and gets rebuild every time the constructor is called, i.e build method is called (Recreation)
+- Stateful: Even stateful widgets have a constructor function but it also has a State Object which is independent of the widget itself. The createState() is used to create the state object. 
+    - Inside of that state object, you also have/add a init state method.
+    - That's a reserved method name by flutter that is automatically run by Flutter when the state object is first created. Only for the first time, so when widget is rebuild, it wont run again
+    - Then Build method is called.
+    - You can always call the setState() to update the widget and rebuild it or rebuild cz it's parent widget's build was called and has to rebuild now- In such case,  didUpdateWidget() is triggered.
+        you can add this to your state object to run when the widget that belongs to that state is updated
+    - Then build is run again
+    - If the widget is now removed as you executed it conditionally and it is not true anymore or so, Then Dispose() method is called
+These are all the methods you can add to a stateObject and they run as per their case such as when state created, related widget updated, or removed
+
+- initState() - Is often used for fetching data from HTTP or database initially
+- didUpdateWidget() - is used way less often
+- dispose() - Is great for cleaning up data like while building a chat app, listener to a real time internet connection which sends you new msgs then you wanna clean up the connection to your server when widget is removed. Prevents memory leaks and strange bugs
+
+In case you're interested, this is the code inside of the built-in initState() method:
+```
+@protected
+@mustCallSuper
+void initState() {
+    assert(_debugLifecycleState == _StateLifecycle.created);
+}
+```
+assert is a Dart function that tests a condition and throws an error if it's not met. _debugLifecycleState is a property managed by Flutter to find out in which phase the state object currently is. During production, asserts aren't executed and _debugLifecycleState is not set.

@@ -166,12 +166,8 @@ class _MyHomePageState extends State<MyHomePage> {
     ];
   }
 
-  @override
-  Widget build(BuildContext context) {
-    final mediaQuery = MediaQuery.of(context);
-    final isLandScape = mediaQuery.orientation == Orientation.landscape;
-
-    final PreferredSizeWidget appBar = (Platform.isIOS
+  Widget _buildAppBar() {
+    return Platform.isIOS
         ? CupertinoNavigationBar(
             middle: const Text(
               'Expense Tracker',
@@ -179,7 +175,7 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
             trailing: CupertinoButton(
               onPressed: () => _startsToAddNewTransaction(context),
-              child: Icon(CupertinoIcons.add),
+              child: const Icon(CupertinoIcons.add),
             ))
         : AppBar(
             title: const Text(
@@ -190,11 +186,19 @@ class _MyHomePageState extends State<MyHomePage> {
             // Used to add any widgets or icons to the appbar
             actions: <Widget>[
               IconButton(
-                icon: Icon(Icons.add),
+                icon: const Icon(Icons.add),
                 onPressed: () => _startsToAddNewTransaction(context),
               )
             ],
-          )) as PreferredSizeWidget;
+          );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final mediaQuery = MediaQuery.of(context);
+    final isLandScape = mediaQuery.orientation == Orientation.landscape;
+
+    final PreferredSizeWidget appBar = (_buildAppBar()) as PreferredSizeWidget;
 
     final txWidgetlist = Container(
         height: (mediaQuery.size.height -
