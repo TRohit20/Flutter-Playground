@@ -227,3 +227,13 @@ So, we use yield keyword (Yield is only used in generator functions for the most
 Yield is basically used to output the data
 
 Generics: To avoid re-writing of similar code (we already talked about this in OOPs)
+
+* Mixins:
+Mixins are a way of reusing a class’s code in multiple class hierarchies. They provide an elegant way to reuse code from different classes that don’t quite fit into the same class hierarchy.
+
+Mixin allows dart developers to use methods and properties which are not defined in the same class – without subclassing or extending the other class.
+
+Use case: For example, you might have a class called Vehicle which has a method named run(). The code in the above class may be useful for both Car and MotorBike. But, now imagine you’re introducing a class called MotorBoat. You probably have some functionality on MotorBike (such as a method called handleControlled()) that you’d like to use in the MotorBoat, but not that you want to add to Vehicle. This is a great place to use a mixin called MotorVehicle.
+
+You implement a mixin using the 'with' keyword
+Sometimes you might want to restrict the types that can use a mixin. You can restrict a mixin’s use by using the on keyword to specify the required superclass. The on keyword describes which inheritance structure the mixin can be used on. 

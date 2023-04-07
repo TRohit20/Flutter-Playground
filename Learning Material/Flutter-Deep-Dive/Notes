@@ -101,3 +101,14 @@ void initState() {
 }
 ```
 assert is a Dart function that tests a condition and throws an error if it's not met. _debugLifecycleState is a property managed by Flutter to find out in which phase the state object currently is. During production, asserts aren't executed and _debugLifecycleState is not set.
+
+Understanding the App LifeCycle:
+The overall app also has a lifecycle. There are couple of Lifecycle states and when are they reach and when you can execute code based on that state.
+- Inactive state: Not even running in background, inactive, user cant see it or receiving any input, not fully removed from memory yet. 
+- Pause State: When app is not visible but it is running the background and can be accessed through task manager of your application or something. (maybe you can remove or end connection etc)
+- Resumed State: This state is reached when it is coming back from background mode, becoming visible and again responding to user input (Maybe you fetch new data, make changes, establish connection etc)
+- Suspending State: It is hit when the app is almost about to be suspended, so it's almost gone but still there and is about to be cleared and removed from memory by OS
+* For all these states, it is important to know that you never have a 100% gurantee that you are listeners to these states are executed, especially for suspending as it can be that user shuts down the phone or lack of charge so switched off suddenly etc. In such cases, the state might not reach that state because it's not a clean exit as initialised by OS but a hard exit due to some external factor. 
+But in most cases, you can listen to these lifecycle events.
+
+All the events happen in short amount of time. 
