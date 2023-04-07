@@ -112,3 +112,19 @@ The overall app also has a lifecycle. There are couple of Lifecycle states and w
 But in most cases, you can listen to these lifecycle events.
 
 All the events happen in short amount of time. 
+
+* Understanding Context
+In flutter, we often come across this property or argument called Context which is used often in Build methods or in conjunction with mediaQuery or theming. So, Let us see what exactly context is
+- In Flutter, Every widget has it's own context attached. Context in the end can be defined as the element of the widget in the element tree. 
+- Its a meta information about the widget and its location in the widget tree.
+- They work internally, as they have meta info, they know about eachother and how each widget is related like a skeleton.
+- *They build a skeleton of the widget tree, It gives a direct communication channel across your widget tree because they know about each other etc*
+
+Let us understand better with an example:
+Take a MyApp widget which has multiple levels of subwidgets to it. Now, if a widget at the bottom needs some data that is mannaged in state object of MyApp, then we would have to pass down the data all the way down and depending on size and layers of the app, it may or maynot be problem. 
+But data such as device orientation, theme and more which are data that is possibly used by any widget in the tree and therefore has to be passed down all the widgets, then using arguments to manually pass down the data gets really cumbersome.
+
+Which is why we can instead use, *INHERITED WIDGETS*
+We haven't used them yet, but mediaquery or theme use this in the background already.
+- You get a direct tunnel to the inherited widget and the data managed in there with the help of context. Since context knows the info or general structure of the tree, so they can directly access any other widget without passing data through arguments.
+- We use the .of() and context 
