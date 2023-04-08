@@ -128,3 +128,20 @@ Which is why we can instead use, *INHERITED WIDGETS*
 We haven't used them yet, but mediaquery or theme use this in the background already.
 - You get a direct tunnel to the inherited widget and the data managed in there with the help of context. Since context knows the info or general structure of the tree, so they can directly access any other widget without passing data through arguments.
 - We use the .of() and context 
+
+Flutter when rebuilding, it goes to check in a top-down approach in element tree. It goes layer by layer
+items or states can be dropped by flutter but wrong ones could be dropped. So we need a way to tell flutter that items are not just identified by type but also something else. So, it really check if it is the same item or so. 
+We can thankfully do that using keys
+
+Note: ':' is used after constructor to instantiate a instance of the super class or pass varaibles to it. Directly passing the data to super class. You do this when you want to add additional data or something to parent class, Like keys
+
+* Keys:
+- Most widgets do not need a key especially Stateless widgets mostly dont need a key
+- You only need to have a key to the widget that is the top most item or immediate child and stateful 
+- There are different types of Keys in flutter, Check them out here: https://www.youtube.com/watch?v=kn0EOS-ZiIc
+- Keys simply make it easy for flutter to identify the connected widget. 
+- Do not use keys everywhere, it is not required. use it only when you need it
+- Which type of key to use? Use the data being stored in the app or widget and figure using it. 
+- There are various keys, use the documentation, data you use and use case to figure out which suits the best for you.
+- Page storage, Global keys, Object keys, Unique key, Value key etc 
+- Overall, Use keys when you want to preserve state across the widget trees. 
