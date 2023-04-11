@@ -6,3 +6,5 @@
 * Home argument in Main dart file is used to make a certain screen as a main screen or the entry point of the app. 
 
 * MaterialPageRoute is like a wrapper we need to handle animations or transition from one page to another or more
+
+- We used Navigator and Pageroute widgets to make navigation between pages possible

@@ -5,12 +5,13 @@ import 'package:ziggy_a_recipes_app/category_meals_screen.dart';
 class CategoryItem extends StatelessWidget {
   final String title;
   final Color colour;
+  final String id;
 
-  CategoryItem(this.title, this.colour);
+  CategoryItem(this.id, this.title, this.colour);
 
   void selectedCategory(BuildContext ctx) {
     Navigator.of(ctx).push(CupertinoPageRoute(builder: (_) {
-      return CategoryMealsScreen();
+      return CategoryMealsScreen(id, title);
     }));
   }
 
