@@ -9,7 +9,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Ziggy Recipes',
       theme: ThemeData(
-        primarySwatch: Colors.teal,
+        primarySwatch: Colors.orange,
         // colorScheme:
         //     ColorScheme.fromSwatch(accentColor: Colors.deepOrange.shade200),
         canvasColor: const Color.fromRGBO(255, 254, 230, 1),
