@@ -8,7 +8,22 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Ziggy Recipes',
-      theme: ThemeData(primarySwatch: Colors.deepOrange),
+      theme: ThemeData(
+        primarySwatch: Colors.teal,
+        // colorScheme:
+        //     ColorScheme.fromSwatch(accentColor: Colors.deepOrange.shade200),
+        canvasColor: const Color.fromRGBO(255, 254, 230, 1),
+        fontFamily: 'Raleway',
+        textTheme: ThemeData.light().textTheme.copyWith(
+            bodyLarge: const TextStyle(color: Color.fromRGBO(20, 51, 51, 1)),
+            bodyMedium: const TextStyle(color: Color.fromRGBO(20, 51, 51, 1)),
+            titleLarge:
+                const TextStyle(fontFamily: 'RobotoCondensed', fontSize: 20),
+            titleMedium: const TextStyle(
+                fontFamily: 'RobotoCondensed',
+                fontSize: 14,
+                fontWeight: FontWeight.bold)),
+      ),
       home: CategoriesScreen(),
     );
   }
