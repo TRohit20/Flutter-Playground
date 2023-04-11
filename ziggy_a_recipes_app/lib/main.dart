@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ziggy_a_recipes_app/categories_screen.dart';
 
 void main() => runApp(MyApp());
 
@@ -8,7 +9,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Ziggy Recipes',
       theme: ThemeData(primarySwatch: Colors.deepOrange),
-      home: MyHomePage(),
+      home: CategoriesScreen(),
     );
   }
 }

@@ -2,3 +2,5 @@
 
 * Every widget can essentially be used as screen/route/page. It's all the same.
     It is just a term used to describe a entire page on the app
+
+* Home argument in Main dart file is used to make a certain screen as a main screen or the entry point of the app. 
