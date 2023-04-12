@@ -6,7 +6,7 @@ This is a repository that keeps track of all my learnings of flutter. It consist
 </p>
 
 # Each project in this repo is a learning module of Flutter
-- [Walkthrough App](https://github.com/TRohit20/Flutter-Playground/tree/main/walkthrough_app)- This project is for absolute beginners in case you start your journey of programming with Dart, it has all the very basics and essentials of programming. Have fun!!
+- [Roll Dice App](https://github.com/TRohit20/Flutter-Playground/tree/main/roll_dice_app) and [Walkthrough App](https://github.com/TRohit20/Flutter-Playground/tree/main/walkthrough_app)- This project is for absolute beginners in case you start your journey of programming with Dart, it has all the very basics and essentials of programming. Have fun!!
 - [Basic App](https://github.com/TRohit20/Flutter-Playground/tree/main/basic_app) - The application that has all the fundamentals and components to get started with Flutter, Your stepping stone
 - [Cupertino Design App](https://github.com/TRohit20/Flutter-Playground/tree/main/cupertino_design_app) - This app is built using the Cupertino Design style meaning for iOS, It is a playaround app to implement or develop specifically for IOS
 - [Expense Tracker](https://github.com/TRohit20/Flutter-Playground/tree/main/expense_tracker) - Application built to track your expenses, this application consists of mainly design and widgets knowledge, styling and more
