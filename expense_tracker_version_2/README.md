@@ -1,9 +1,6 @@
-# quiz_app
+# expense_tracker_version_2
 
 A new Flutter project.
-
-## Snapshots of the App
-
 
 ## Getting Started
 

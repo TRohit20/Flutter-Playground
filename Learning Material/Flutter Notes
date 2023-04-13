@@ -405,3 +405,5 @@ Constraints are a feature provided by Flutter. It is a feature offered by flutte
 - This is because this way, you won't be recreating the object everytime you need,  but instead your gonna reference to one object which is usually at the beginning of the build method. Calculating or getting the object once and then using it across
 
 - IOS has some space on screen already reserved for notch and app drawer task manager so we need to respect which is why we use a widget called SafeArea on the body which respects the space reserved and adjusts accordingly 
+
+* In dart and Flutter, "Initializer lists can be used to initialise the class properties with values that are not received as constructor arguments
