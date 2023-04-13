@@ -1,5 +1,3 @@
-import 'dart:math';
-
 import 'package:expense_tracker_version_2/models/expense.dart';
 import 'package:expense_tracker_version_2/widgets/expenses_list/expense_list.dart';
 import 'package:expense_tracker_version_2/widgets/expenses_list/new_expense.dart';
@@ -28,12 +26,25 @@ class _ExpensesState extends State<Expenses> {
 
   void addExpense() {
     showModalBottomSheet(
+      isScrollControlled: true,
       context: context,
       builder: (ctx) //Context of modal bottom sheet
           {
-        return const NewExpense();
+        return NewExpense(newExpenseToTheList);
       },
     );
+  }
+
+  void removeExpense(Expense expense) {
+    setState(() {
+      _registeredExpense.remove(expense);
+    });
+  }
+
+  void newExpenseToTheList(Expense expense) {
+    setState(() {
+      _registeredExpense.add(expense);
+    });
   }
 
   @override
@@ -44,7 +55,9 @@ class _ExpensesState extends State<Expenses> {
       ]),
       body: Column(children: [
         const Text('Chart will be here'),
-        Expanded(child: ExpenseList(expenses: _registeredExpense))
+        Expanded(
+            child: ExpenseList(
+                expenses: _registeredExpense, deleteExpenses: removeExpense))
       ]),
     );
   }

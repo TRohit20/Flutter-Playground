@@ -1,5 +1,3 @@
-import 'dart:math';
-
 import 'package:expense_tracker_version_2/widgets/expenses_list/expense_item.dart';
 import 'package:flutter/material.dart';
 
@@ -7,11 +5,18 @@ import '../../models/expense.dart';
 
 class ExpenseList extends StatelessWidget {
   final List<Expense> expenses;
+  final void Function(Expense) deleteExpenses;
 
-  const ExpenseList({super.key, required this.expenses});
+  const ExpenseList(
+      {required this.deleteExpenses, super.key, required this.expenses});
 
   Widget listItemsBuilderFunction(BuildContext context, int index) {
-    return ExpenseItem(expenses[index]);
+    return Dismissible(
+        key: ValueKey(expenses[index]),
+        onDismissed: (direction) {
+          deleteExpenses(expenses[index]);
+        },
+        child: ExpenseItem(expenses[index]));
   }
 
   @override
