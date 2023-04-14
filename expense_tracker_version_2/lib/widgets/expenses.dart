@@ -40,6 +40,7 @@ class _ExpensesState extends State<Expenses> {
     setState(() {
       _registeredExpense.remove(expense);
     });
+    ScaffoldMessenger.of(context).clearSnackBars();
     ScaffoldMessenger.of(context).showSnackBar(SnackBar(
         action: SnackBarAction(
             label: 'Undo',
