@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../../models/expense.dart';
-import 'chart_bar.dart';
+import 'package:expense_tracker/widgets/chart/chart_bar.dart';
+import 'package:expense_tracker/models/expense.dart';
 
 class Chart extends StatelessWidget {
   const Chart({super.key, required this.expenses});
@@ -14,7 +14,6 @@ class Chart extends StatelessWidget {
       ExpenseBucket.forCategory(expenses, Category.leisure),
       ExpenseBucket.forCategory(expenses, Category.travel),
       ExpenseBucket.forCategory(expenses, Category.work),
-      ExpenseBucket.forCategory(expenses, Category.luxury),
     ];
   }
 
@@ -22,8 +21,8 @@ class Chart extends StatelessWidget {
     double maxTotalExpense = 0;
 
     for (final bucket in buckets) {
-      if (bucket.totalAmount > maxTotalExpense) {
-        maxTotalExpense = bucket.totalAmount;
+      if (bucket.totalExpenses > maxTotalExpense) {
+        maxTotalExpense = bucket.totalExpenses;
       }
     }
 
@@ -61,16 +60,16 @@ class Chart extends StatelessWidget {
               children: [
                 for (final bucket in buckets) // alternative to map()
                   ChartBar(
-                    fill: bucket.totalAmount == 0
+                    fill: bucket.totalExpenses == 0
                         ? 0
-                        : bucket.totalAmount / maxTotalExpense,
+                        : bucket.totalExpenses / maxTotalExpense,
                   )
               ],
             ),
           ),
           const SizedBox(height: 12),
           Row(
-            children: buckets
+            children: buckets // for ... in
                 .map(
                   (bucket) => Expanded(
                     child: Padding(
