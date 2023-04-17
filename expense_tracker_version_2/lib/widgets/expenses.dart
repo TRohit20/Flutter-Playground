@@ -1,4 +1,5 @@
 import 'package:expense_tracker_version_2/models/expense.dart';
+import 'package:expense_tracker_version_2/widgets/chart/chart.dart';
 import 'package:expense_tracker_version_2/widgets/expenses_list/expense_list.dart';
 import 'package:expense_tracker_version_2/widgets/expenses_list/new_expense.dart';
 import 'package:flutter/material.dart';
@@ -72,7 +73,7 @@ class _ExpensesState extends State<Expenses> {
         IconButton(onPressed: addExpense, icon: const Icon(Icons.add))
       ]),
       body: Column(children: [
-        const Text('Chart will be here'),
+        Chart(expenses: _registeredExpense),
         Expanded(child: mainContent)
       ]),
     );
