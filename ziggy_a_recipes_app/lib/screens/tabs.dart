@@ -1,8 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:ziggy_a_recipes_app/screens/categories.dart';
 import 'package:ziggy_a_recipes_app/screens/meals.dart';
+
+import '../models/meal.dart';
 
 class TabsScreen extends StatefulWidget {
   const TabsScreen({super.key});
@@ -13,6 +14,18 @@ class TabsScreen extends StatefulWidget {
 
 class _TabsScreenState extends State<TabsScreen> {
   int _selectedTabIndex = 0;
+  final List<Meal> _favoriteMeals = [];
+
+  void _toggleMealsToFavorites(Meal meal) {
+    // Check if the meal already exists
+    final isExisting = _favoriteMeals.contains(meal);
+
+    if (isExisting) {
+      _favoriteMeals.remove(meal);
+    } else {
+      _favoriteMeals.add(meal);
+    }
+  }
 
   void _selectPage(int index) {
     setState(() {
@@ -22,13 +35,16 @@ class _TabsScreenState extends State<TabsScreen> {
 
   @override
   Widget build(BuildContext context) {
-    Widget activePage = const CategoriesScreen();
+    Widget activePage = CategoriesScreen(
+      onToggleMeals: _toggleMealsToFavorites,
+    );
     // String selectedPageName = 'Categories';
 
     if (_selectedTabIndex == 1) {
       activePage = MealsScreen(
         title: 'Favorites',
         meals: [],
+        onToggleMealFavorites: _toggleMealsToFavorites,
       );
       // selectedPageName = 'Favorites';
     }

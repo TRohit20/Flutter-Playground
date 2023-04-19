@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 import 'package:google_fonts/google_fonts.dart';
-import 'package:ziggy_a_recipes_app/screens/categories.dart';
 import 'package:ziggy_a_recipes_app/screens/tabs.dart';
 
 final theme = ThemeData(

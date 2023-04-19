@@ -3,10 +3,12 @@ import 'package:flutter/material.dart';
 import 'package:ziggy_a_recipes_app/models/category.dart';
 import 'package:ziggy_a_recipes_app/screens/meals.dart';
 import '../data/dummy_data.dart';
+import '../models/meal.dart';
 import '../widgets/category_grid_item.dart';
 
 class CategoriesScreen extends StatelessWidget {
-  const CategoriesScreen({super.key});
+  const CategoriesScreen({required this.onToggleMeals, super.key});
+  final void Function(Meal meal) onToggleMeals;
 
   void _selectCategory(BuildContext context, Category category) {
     // Returns a iterable(List) that has only items meet the condition
@@ -18,6 +20,7 @@ class CategoriesScreen extends StatelessWidget {
       builder: (context) => MealsScreen(
         title: category.title,
         meals: categoryMeals,
+        onToggleMealFavorites: onToggleMeals,
       ),
     ));
   }
