@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:ziggy_a_recipes_app/widgets/meal_item.dart';
 
 import '../models/meal.dart';
+import 'meal_details.dart';
 
 class MealsScreen extends StatelessWidget {
   final String title;
@@ -9,12 +10,21 @@ class MealsScreen extends StatelessWidget {
 
   const MealsScreen({required this.title, required this.meals, super.key});
 
+  void onMealSelected(BuildContext context, Meal meal) {
+    Navigator.of(context).push(MaterialPageRoute(builder: (ctx) {
+      return MealDetailsScreen(meal: meal);
+    }));
+  }
+
   @override
   Widget build(BuildContext context) {
     final bodyContent = ListView.builder(
         itemCount: meals.length,
         itemBuilder: (ctx, index) {
-          return MealItem(meal: meals[index]);
+          return MealItem(
+            meal: meals[index],
+            onSelectMeal: (meal) => onMealSelected(context, meal),
+          );
         });
 
     if (meals.isEmpty) {
