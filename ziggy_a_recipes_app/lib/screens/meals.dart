@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ziggy_a_recipes_app/widgets/meal_item.dart';
 
 import '../models/meal.dart';
 
@@ -13,7 +14,7 @@ class MealsScreen extends StatelessWidget {
     final bodyContent = ListView.builder(
         itemCount: meals.length,
         itemBuilder: (ctx, index) {
-          return Text(meals[index].title);
+          return MealItem(meal: meals[index]);
         });
 
     if (meals.isEmpty) {
