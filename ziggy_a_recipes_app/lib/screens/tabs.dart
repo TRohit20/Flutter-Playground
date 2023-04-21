@@ -49,10 +49,11 @@ class _TabsScreenState extends State<TabsScreen> {
     });
   }
 
-  void _onSelectTab(String identifier) {
+  void _onSelectTab(String identifier) async {
     Navigator.of(context).pop();
     if (identifier == 'Filters') {
-      Navigator.of(context).push(CupertinoPageRoute(builder: (ctx) {
+      final result = await Navigator.of(context)
+          .push<Map<Filter, bool>>(CupertinoPageRoute(builder: (ctx) {
         return const FiltersScreen();
       }));
     }
