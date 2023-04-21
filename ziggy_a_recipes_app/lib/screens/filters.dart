@@ -6,7 +6,9 @@ import 'package:ziggy_a_recipes_app/models/filter_item.dart';
 enum Filter { glutenFree, lactoseFree, vegetarianFree, veganFree }
 
 class FiltersScreen extends StatefulWidget {
-  const FiltersScreen({super.key});
+  final Map<Filter, bool> currentFilterStatus;
+
+  const FiltersScreen({required this.currentFilterStatus, super.key});
 
   @override
   State<FiltersScreen> createState() => _FilterScreenState();
@@ -17,6 +19,16 @@ class _FilterScreenState extends State<FiltersScreen> {
   var _lactoseFilterStatus = false;
   var _vegetarianFilterStatus = false;
   var _veganFilterStatus = false;
+
+  @override
+  void initState() {
+    super.initState();
+    _gluttenFilterStatus = widget.currentFilterStatus[Filter.glutenFree]!;
+    _lactoseFilterStatus = widget.currentFilterStatus[Filter.lactoseFree]!;
+    _vegetarianFilterStatus =
+        widget.currentFilterStatus[Filter.vegetarianFree]!;
+    _veganFilterStatus = widget.currentFilterStatus[Filter.veganFree]!;
+  }
 
   @override
   Widget build(BuildContext context) {

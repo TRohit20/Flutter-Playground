@@ -8,12 +8,14 @@ import '../widgets/category_grid_item.dart';
 
 class CategoriesScreen extends StatelessWidget {
   final void Function(Meal meal) onToggleMeals;
+  final List<Meal> filteredMeals;
 
-  const CategoriesScreen({required this.onToggleMeals, super.key});
+  const CategoriesScreen(
+      {required this.onToggleMeals, required this.filteredMeals, super.key});
 
   void _selectCategory(BuildContext context, Category category) {
     // Returns a iterable(List) that has only items meet the condition
-    final categoryMeals = dummyMeals
+    final categoryMeals = filteredMeals
         .where((meal) => meal.categories.contains(category.id))
         .toList();
 
