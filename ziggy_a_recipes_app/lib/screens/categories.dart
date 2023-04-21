@@ -7,8 +7,9 @@ import '../models/meal.dart';
 import '../widgets/category_grid_item.dart';
 
 class CategoriesScreen extends StatelessWidget {
-  const CategoriesScreen({required this.onToggleMeals, super.key});
   final void Function(Meal meal) onToggleMeals;
+
+  const CategoriesScreen({required this.onToggleMeals, super.key});
 
   void _selectCategory(BuildContext context, Category category) {
     // Returns a iterable(List) that has only items meet the condition
@@ -29,7 +30,7 @@ class CategoriesScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Pick a Category'),
+        title: const Text('Pick a Category'),
       ),
       // Builder func is used if you want to build grid dynamically
       body: GridView(
