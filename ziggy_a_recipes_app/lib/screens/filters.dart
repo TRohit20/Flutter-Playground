@@ -3,6 +3,8 @@ import 'package:ziggy_a_recipes_app/models/filter_item.dart';
 // import 'package:ziggy_a_recipes_app/screens/tabs.dart';
 // import 'package:ziggy_a_recipes_app/widgets/main_drawer.dart';
 
+enum Filter { glutenFree, lactoseFree, vegetarianFree, veganFree }
+
 class FiltersScreen extends StatefulWidget {
   const FiltersScreen({super.key});
 
@@ -30,24 +32,36 @@ class _FilterScreenState extends State<FiltersScreen> {
       //   },
       // )),
       appBar: AppBar(title: const Text('Your Filters')),
-      body: Column(children: [
-        FilterItem(
-          filterStatus: _gluttenFilterStatus,
-          title: 'Glutten-Free',
-        ),
-        FilterItem(
-          filterStatus: _gluttenFilterStatus,
-          title: 'Lactose-Free',
-        ),
-        FilterItem(
-          filterStatus: _gluttenFilterStatus,
-          title: 'Vegetarian-Free',
-        ),
-        FilterItem(
-          filterStatus: _gluttenFilterStatus,
-          title: 'Vegan-Free',
-        ),
-      ]),
+      body: WillPopScope(
+        // A utility widget that takes Fututes
+        onWillPop: () async {
+          Navigator.of(context).pop({
+            Filter.glutenFree: _gluttenFilterStatus,
+            Filter.lactoseFree: _lactoseFilterStatus,
+            Filter.vegetarianFree: _vegetarianFilterStatus,
+            Filter.veganFree: _veganFilterStatus,
+          });
+          return false;
+        },
+        child: Column(children: [
+          FilterItem(
+            filterStatus: _gluttenFilterStatus,
+            title: 'Glutten-Free',
+          ),
+          FilterItem(
+            filterStatus: _gluttenFilterStatus,
+            title: 'Lactose-Free',
+          ),
+          FilterItem(
+            filterStatus: _gluttenFilterStatus,
+            title: 'Vegetarian-Free',
+          ),
+          FilterItem(
+            filterStatus: _gluttenFilterStatus,
+            title: 'Vegan-Free',
+          ),
+        ]),
+      ),
     );
   }
 }
