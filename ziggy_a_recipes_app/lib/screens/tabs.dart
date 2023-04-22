@@ -4,7 +4,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:ziggy_a_recipes_app/providers/favorites_provider.dart';
-import 'package:ziggy_a_recipes_app/providers/meal_provider.dart';
 import 'package:ziggy_a_recipes_app/screens/categories.dart';
 import 'package:ziggy_a_recipes_app/screens/filters.dart';
 import 'package:ziggy_a_recipes_app/screens/meals.dart';
@@ -40,23 +39,7 @@ class _TabsScreenState extends ConsumerState<TabsScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final meals = ref.watch(mealsProvider);
-    final activeFilters = ref.watch(filtersProvider);
-    final filteredMeals = meals.where((meal) {
-      if (activeFilters[Filter.glutenFree]! && !meal.isGlutenFree) {
-        return false;
-      }
-      if (activeFilters[Filter.lactoseFree]! && !meal.isLactoseFree) {
-        return false;
-      }
-      if (activeFilters[Filter.vegetarianFree]! && !meal.isVegetarian) {
-        return false;
-      }
-      if (activeFilters[Filter.veganFree]! && !meal.isVegan) {
-        return false;
-      }
-      return true;
-    }).toList();
+    final filteredMeals = ref.watch(filteredMealsProvider);
 
     final favouriteMeals = ref.watch(favouriteMealsProvider);
 
