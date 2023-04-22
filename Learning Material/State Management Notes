@@ -30,5 +30,6 @@ So, using Using central provider, we dont have to deal with cross widget managem
 - Add life or logic to the _Notifier class now.
 - In StateNotifier class, Data cannot be modified, it enforces us to create new ones but not modify existing ones.
 
-// You can add multiple providers to the same file if you want, Makes sense to put them in same file if closely related
 * Building a Provider that depends on another Provider:
+- You can add multiple providers to the same file if you want, Makes sense to put them in same file if closely related
+

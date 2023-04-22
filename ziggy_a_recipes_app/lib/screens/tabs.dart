@@ -84,8 +84,8 @@ class _TabsScreenState extends ConsumerState<TabsScreen> {
         : Scaffold(
             drawer: MainDrawer(onSelectTab: _onSelectTab),
             appBar: AppBar(
-              title: Text(selectedPageName),
-            ),
+                // title: Text(selectedPageName),
+                ),
             body: activePage,
             bottomNavigationBar: BottomNavigationBar(
                 currentIndex: _selectedTabIndex,

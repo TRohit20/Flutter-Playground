@@ -1,0 +1,24 @@
+### Animations in Flutter
+
+In animations, you are always working between two values 0 and 1. 
+You are responsible to translate those values to change something on the screen
+
+We use a animationBuiler function which takes a animation listenable, and executes a function by taking args 'Context' and child
+
+here, child is a widget but a extra one. It can be added to set any widgets that maybe should be output as part of animated content but should not be animated themselves.
+So performance is increased as you're not rebuilding everything or animating it all or reevaluating it. Refer Example
+
+* To play the animation, You need to explicitly started, you can do that in the initState by calling forward on it.
+
+- Flutter has many transitions to make use of.
+
+* Explicit Animations
+- The type of animations that are controlled and built by you. (In Detail).
+- More control = More complexity and details
+- You can avoid building custom animations using Pre-built widgets
+- * If you are adding a Explicit Animation, you must add it to a State Object(Stateful widget)
+
+* Implicit Animations
+- The type of animatiosn which are controlled mostly by Flutter
+- Less control == Less complexity
+- You can use one of many pre-built animations by Flutter
