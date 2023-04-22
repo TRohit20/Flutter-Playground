@@ -13,6 +13,7 @@ Chronological in Learning and build:
 - [Expense Tracker](https://github.com/TRohit20/Flutter-Playground/tree/main/expense_tracker) - Application built to track your expenses, this application consists of mainly design and widgets knowledge, styling and more
 - [Flutter Deep Dive and Internal Working](https://github.com/TRohit20/Flutter-Playground/tree/main/Learning%20Material/Flutter-Deep-Dive)- This is a module of learning where I go deep into Flutter and it's internal working. 
 - [Recipes App](https://github.com/TRohit20/Flutter-Playground/tree/main/ziggy_a_recipes_app) - Application built to learn about building a app with multiple screens, Navigate between pages, Drawer or Tabs on a screen, Throwing logic and function back and forth multiple pages and more
+- [Wanna learn Animations?](https://github.com/TRohit20/Flutter-Playground/tree/main/ziggy_a_recipes_app) - The above Recipes app has both explicit and implicit Animations used. Refer the last few commits and Animation notes and The official Docs for more on them.
 - More coming soon as i continue to learn and implement
 
 # Where to look for notes or References to understand the parts of code or Concepts? 
