@@ -7,11 +7,9 @@ import '../models/meal.dart';
 import '../widgets/category_grid_item.dart';
 
 class CategoriesScreen extends StatelessWidget {
-  final void Function(Meal meal) onToggleMeals;
   final List<Meal> filteredMeals;
 
-  const CategoriesScreen(
-      {required this.onToggleMeals, required this.filteredMeals, super.key});
+  const CategoriesScreen({required this.filteredMeals, super.key});
 
   void _selectCategory(BuildContext context, Category category) {
     // Returns a iterable(List) that has only items meet the condition
@@ -23,7 +21,6 @@ class CategoriesScreen extends StatelessWidget {
       builder: (context) => MealsScreen(
         title: category.title,
         meals: categoryMeals,
-        onToggleMealFavorites: onToggleMeals,
       ),
     ));
   }

@@ -23,3 +23,9 @@ So, using Using central provider, we dont have to deal with cross widget managem
 - 'ref' property gives us various properties, use them as per your need 
 - Accoridng to official documentation, It is recommended to work with '.watch()' method as it dynamically rebuilds or updates UI by listening to events
 - ProviderScope needs to be added in the main.dart
+
+* Now, using Provider class when data is static or not changing makes sense, but when the data is dynamic. We cant use it.
+- We need to use 'StateNotifierProvider', This works together with 'StateNotifier' class
+- StateNotifier is a generic class that is used to extend a __Notifier class (It is convention to end the class name with Notifier)
+- Add life or logic to the _Notifier class now.
+- In StateNotifier class, Data cannot be modified, it enforces us to create new ones but not modify existing ones.

@@ -4,6 +4,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:ziggy_a_recipes_app/data/dummy_data.dart';
+import 'package:ziggy_a_recipes_app/providers/favorites_provider.dart';
 import 'package:ziggy_a_recipes_app/providers/meal_provider.dart';
 import 'package:ziggy_a_recipes_app/screens/categories.dart';
 import 'package:ziggy_a_recipes_app/screens/filters.dart';
@@ -28,30 +29,12 @@ class TabsScreen extends ConsumerStatefulWidget {
 
 class _TabsScreenState extends ConsumerState<TabsScreen> {
   int _selectedTabIndex = 0;
-  final List<Meal> _favoriteMeals = [];
   Map<Filter, bool> _selectedFilters = kInitialFilterValues;
 
   void _showToggleMessage(String message) {
     ScaffoldMessenger.of(context).clearSnackBars();
     ScaffoldMessenger.of(context)
         .showSnackBar(SnackBar(content: Text(message)));
-  }
-
-  void _toggleMealsToFavorites(Meal meal) {
-    // Check if the meal already exists
-    final isExisting = _favoriteMeals.contains(meal);
-
-    if (!isExisting) {
-      setState(() {
-        _favoriteMeals.add(meal);
-        _showToggleMessage('Meal added to Favorites');
-      });
-    } else {
-      setState(() {
-        _favoriteMeals.remove(meal);
-        _showToggleMessage('Meal removed from Favorites');
-      });
-    }
   }
 
   void _selectPage(int index) {
@@ -95,10 +78,11 @@ class _TabsScreenState extends ConsumerState<TabsScreen> {
       return true;
     }).toList();
 
+    final favouriteMeals = ref.watch(favouriteMealsProvider);
+
     final isPlatformIOS = Platform.isIOS;
 
     Widget activePage = CategoriesScreen(
-      onToggleMeals: _toggleMealsToFavorites,
       filteredMeals: filteredMeals,
     );
     String selectedPageName = 'Categories';
@@ -106,8 +90,7 @@ class _TabsScreenState extends ConsumerState<TabsScreen> {
     if (_selectedTabIndex == 1) {
       activePage = MealsScreen(
         title: 'Favorites',
-        meals: _favoriteMeals,
-        onToggleMealFavorites: _toggleMealsToFavorites,
+        meals: favouriteMeals,
       );
       selectedPageName = 'Favorites';
     }
