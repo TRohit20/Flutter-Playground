@@ -29,3 +29,5 @@ So, using Using central provider, we dont have to deal with cross widget managem
 - StateNotifier is a generic class that is used to extend a __Notifier class (It is convention to end the class name with Notifier)
 - Add life or logic to the _Notifier class now.
 - In StateNotifier class, Data cannot be modified, it enforces us to create new ones but not modify existing ones.
+
+* Building a Provider that depends on another Provider
