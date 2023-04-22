@@ -1,0 +1,25 @@
+There are multiple methods and third party packages that can be used for State management.
+
+But, Today we are going to use 'Riverpod'
+
+How Riverpod works?
+With Riverpod package now installed in your app as dependency.
+
+You can create a so called Provider.
+- it can provide a dynamic value or methods that can change that value
+
+Then in any of your widgets, you can set up a consumer (ANY WIDGET), This will be connected to the provider automatically.
+Consumer will listen to the events and changes to that value
+Even trigger those changes by calling the method. 
+
+So, using Using central provider, we dont have to deal with cross widget management
+
+- Using dynamic data for cross widget state is more useful
+
+- StatefulWidget needs to be turned into 'ConsumerStatefulWidget' when making it a consumer of the provider. In case of Stateless widget, It will be 'ConsumerWidget'
+
+* Just like we have 'widget' property to reach out to the widget in above state class, We now have 
+- 'ref' property available that allows us to setup listeners to our providers.
+- 'ref' property gives us various properties, use them as per your need 
+- Accoridng to official documentation, It is recommended to work with '.watch()' method as it dynamically rebuilds or updates UI by listening to events
+- ProviderScope needs to be added in the main.dart
