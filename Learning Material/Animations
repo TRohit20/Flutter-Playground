@@ -19,6 +19,9 @@ So performance is increased as you're not rebuilding everything or animating it 
 - * If you are adding a Explicit Animation, you must add it to a State Object(Stateful widget)
 
 * Implicit Animations
+-- (https://docs.flutter.dev/development/ui/widgets/animation)
 - The type of animatiosn which are controlled mostly by Flutter
 - Less control == Less complexity
 - You can use one of many pre-built animations by Flutter
+
+For any kind of animation you wanna build, Pre-built widgets are often the better choice
