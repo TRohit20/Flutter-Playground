@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:shopping_list_app/data/categories.dart';
+import 'package:shopping_list_app/models/category.dart';
 
 class NewItem extends StatefulWidget {
   const NewItem({super.key});
@@ -10,9 +11,14 @@ class NewItem extends StatefulWidget {
 
 class _NewItemState extends State<NewItem> {
   final _formKey = GlobalKey<FormState>();
+  var enteredItemName = '';
+  var enteredQuantityNumber = 1;
+  var selectedCategory = categories[Categories.carbs];
 
   void _saveItem() {
-    _formKey.currentState!.validate();
+    if (_formKey.currentState!.validate()) {
+      _formKey.currentState!.save();
+    }
   }
 
   @override
@@ -39,6 +45,9 @@ class _NewItemState extends State<NewItem> {
                     }
                     return null;
                   },
+                  onSaved: (value) {
+                    enteredItemName = value!;
+                  },
                 ),
                 Row(
                   crossAxisAlignment: CrossAxisAlignment.end,
@@ -59,6 +68,9 @@ class _NewItemState extends State<NewItem> {
                           }
                           return null;
                         },
+                        onSaved: (value) {
+                          enteredQuantityNumber = int.parse(value!);
+                        },
                       ),
                     ),
                     const SizedBox(
@@ -66,6 +78,7 @@ class _NewItemState extends State<NewItem> {
                     ),
                     Expanded(
                       child: DropdownButtonFormField(
+                        value: selectedCategory,
                         items: [
                           for (final category in categories.entries)
                             DropdownMenuItem(
@@ -84,7 +97,11 @@ class _NewItemState extends State<NewItem> {
                                   ],
                                 ))
                         ],
-                        onChanged: (value) {},
+                        onChanged: (value) {
+                          setState(() {
+                            selectedCategory = value!;
+                          });
+                        },
                       ),
                     ),
                   ],
