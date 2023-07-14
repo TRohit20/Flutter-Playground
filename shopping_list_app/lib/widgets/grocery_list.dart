@@ -8,7 +8,7 @@ import 'package:shopping_list_app/models/grocery_item.dart';
 import 'package:shopping_list_app/widgets/new_item.dart';
 
 class GroceryList extends StatefulWidget {
-  const GroceryList({super.key});
+  const GroceryList({Key? key}) : super(key: key);
 
   @override
   State<GroceryList> createState() => _GroceryListState();
@@ -25,8 +25,9 @@ class _GroceryListState extends State<GroceryList> {
 
   void _loadItems() async {
     final url = Uri.https(
-        'shopping-list-flutter-8cf40-default-rtdb.firebaseio.com',
-        'shopping-list.json');
+      'shopping-list-flutter-8cf40-default-rtdb.firebaseio.com',
+      'shopping-list.json',
+    );
     final response = await http.get(url);
     final Map<String, dynamic> listData = json.decode(response.body);
     final List<GroceryItem> _loadedItems = [];
@@ -34,13 +35,19 @@ class _GroceryListState extends State<GroceryList> {
     for (final item in listData.entries) {
       final category = categories.entries
           .firstWhere(
-              (catItem) => catItem.value.title == item.value['category'])
+            (catItem) => catItem.value.title == item.value['category'],
+          )
           .value;
-      _loadedItems.add(GroceryItem(
+      final quantity = int.tryParse(item.value['quantity'] ?? '');
+
+      if (quantity != null) {
+        _loadedItems.add(GroceryItem(
           id: item.key,
           category: category,
           name: item.value['name'],
-          quantity: item.value['quantity']));
+          quantity: quantity,
+        ));
+      }
     }
 
     setState(() {
@@ -49,10 +56,11 @@ class _GroceryListState extends State<GroceryList> {
   }
 
   void _addItem() async {
-    await Navigator.of(context)
-        .push<GroceryItem>(CupertinoPageRoute(builder: (ctx) {
-      return const NewItem();
-    }));
+    await Navigator.of(context).push<GroceryItem>(
+      CupertinoPageRoute(builder: (ctx) {
+        return const NewItem();
+      }),
+    );
 
     _loadItems();
   }
@@ -60,9 +68,11 @@ class _GroceryListState extends State<GroceryList> {
   void _removeItem(GroceryItem item) {
     setState(() {
       _groceryItems.remove(item);
-      const SnackBar(
-        duration: Duration(seconds: 3),
-        content: Text('Item is removed from Groceries List'),
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          duration: Duration(seconds: 3),
+          content: Text('Item is removed from Groceries List'),
+        ),
       );
     });
   }
@@ -75,30 +85,36 @@ class _GroceryListState extends State<GroceryList> {
 
     if (_groceryItems.isNotEmpty) {
       content = ListView.builder(
-          itemCount: _groceryItems.length,
-          itemBuilder: (context, index) {
-            return Dismissible(
-              key: ValueKey(_groceryItems[index].id),
-              onDismissed: (direction) {
-                _removeItem(_groceryItems[index]);
-              },
-              child: ListTile(
-                title: Text(_groceryItems[index].name),
-                leading: Container(
-                  width: 24,
-                  height: 24,
-                  color: _groceryItems[index].category.color,
-                ),
-                trailing: Text(_groceryItems[index].quantity.toString()),
+        itemCount: _groceryItems.length,
+        itemBuilder: (context, index) {
+          return Dismissible(
+            key: ValueKey(_groceryItems[index].id),
+            onDismissed: (direction) {
+              _removeItem(_groceryItems[index]);
+            },
+            child: ListTile(
+              title: Text(_groceryItems[index].name),
+              leading: Container(
+                width: 24,
+                height: 24,
+                color: _groceryItems[index].category.color,
               ),
-            );
-          });
+              trailing: Text(_groceryItems[index].quantity.toString()),
+            ),
+          );
+        },
+      );
     }
 
     return Scaffold(
       appBar: AppBar(
         title: const Text('Your Grocery List'),
-        actions: [IconButton(onPressed: _addItem, icon: const Icon(Icons.add))],
+        actions: [
+          IconButton(
+            onPressed: _addItem,
+            icon: const Icon(Icons.add),
+          ),
+        ],
       ),
       body: content,
     );
